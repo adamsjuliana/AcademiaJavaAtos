@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/0a84b03181.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="style.css" class="css">
+    <title>Cadastrar</title>
+</head>
+<body>
+
+<main class="container">
+    <h1>Cadastrar</h1>
+    <form name="frmCadastro" action = "insert">
+        <div class="caixinha">
+            <input type="text" class="text" name="codigo"
+            placeholder="Insira o código">
+        </div>
+        <div class="caixinha">
+            <input type="text" class="text" name="nome"
+            placeholder="Insira o nome">
+        </div>
+        <div class="caixinha">
+            <input type="text" class="text" name="categoria"
+            placeholder="Insira a categoria">
+        </div>
+        <div class="caixinha">
+            <input type="text" class="text" name="valor"
+            placeholder="Insira o valor em R$">
+        </div>
+        <div class="caixinha">
+            <input type="text" class="text" name="quantidade"
+            placeholder="Insira a quantidade">
+        </div>
+            <input type="button" value="Salvar" onclick="validar()">
+            <input type="reset" value="Limpar">
+            <script src="scripts/validador.js"></script>
+        <div>
+			<input type="button" value="Voltar" onclick="location.href='home';">
+        </div>
+
+    </form>
+</main>
+</body>
+</html>
