@@ -46,7 +46,7 @@
 					<td><%=lista.get(i).getValor() %></td>
 					<td><%=lista.get(i).getQuantidade() %></td>
 					<td><a href="javascript: confirmar(<%=lista.get(i).getId()%>)"><i class="fa-solid fa-xmark"></i></a></td>
-					<td><a href='pagedit';> <i class="fa-solid fa-pen-to-square"></i></a></td>
+					<td><a href="select?id=<%=lista.get(i).getId()%>"><i class="fa-solid fa-pen-to-square"></i></a></td>
 				</tr>
 				<%} %>
 		</tbody>
