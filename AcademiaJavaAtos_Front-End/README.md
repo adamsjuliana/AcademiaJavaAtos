@@ -1,10 +1,6 @@
-# Academia Atos Java
-
-Curso para capacitação da UFN para formação na Tecnologia Java.
-
 # Disciplina Front-End
 
-# HTML
+## HTML
 - Conceito de HTML
 - Evolução do HTML
 - Arquitetura
@@ -16,7 +12,7 @@ Curso para capacitação da UFN para formação na Tecnologia Java.
 - Atributos globais
 - Formulários e inputs
 
-# CSS
+## CSS
 - Conceito de CSS
 - Evolução do CSS
 - Estilo e posicionamento de elementos
@@ -29,7 +25,7 @@ Curso para capacitação da UFN para formação na Tecnologia Java.
 - Viewports
 - Frameworks
 
-# Javascript
+## Javascript
 - Conceito de Javascript
 - Variáveis
 - Condicionais
@@ -46,7 +42,7 @@ Curso para capacitação da UFN para formação na Tecnologia Java.
 - Compatibilidade
 - Protocolos e DNS
 
-# Material de apoio
+## Material de apoio
 
 - W3c (World Wide Web Consortium)
 http://w3.org/
