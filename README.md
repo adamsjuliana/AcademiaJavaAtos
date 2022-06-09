@@ -1,7 +1,7 @@
-## Academia Atos Java
+# Academia Atos Java
 Curso para capacitação da UFN para formação na Tecnologia Java.
 
-# Conteúdo Programático:
+## Conteúdo Programático:
 - Java Virtual Machine
 - Introdução à Arquitetura
 - Orientação a Objetos
