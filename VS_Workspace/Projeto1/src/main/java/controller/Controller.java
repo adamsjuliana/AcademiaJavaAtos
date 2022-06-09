@@ -12,7 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 import model.DAO;
 import model.JavaBeans;
 
-@WebServlet(urlPatterns = {"/home", "/create", "/read", "/delete", "/insert", "/select", "/update"})
+@WebServlet(urlPatterns = {"/home", "/create", "/read", "/delete", "/insert", "/edit", "/select", "/update"})
 public class Controller extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	DAO dao = new DAO(); //Objeto de acesso ao bd
@@ -54,7 +54,7 @@ protected void adicionarProdutos(HttpServletRequest request, HttpServletResponse
 	produto.setCodigo(request.getParameter("codigo"));
 	produto.setNome(request.getParameter("nome"));
 	produto.setCategoria(request.getParameter("categoria"));
-	produto.setValor(request.getParameter("valor"));
+	produto.setValor(request.getParameter("valor".replaceAll(",", ".")));
 	produto.setQuantidade(request.getParameter("quantidade"));
 	
 	dao.inserirProduto(produto);

@@ -30,13 +30,11 @@ public class PessoaController {
     }
     @GetMapping("/{id}")
     Pessoa getPessoa(@PathVariable Long id) {
-    	return pessoaRepository.findById(id).get();    }
-    
+    	return pessoaRepository.findById(id).get();    }   
     @DeleteMapping("/{id}")
     void deletePessoa(@PathVariable Long id) {
     	pessoaRepository.deleteById(id);
     }
-    
     @PutMapping("/{id}")
     Pessoa updatePessoa(@RequestBody Pessoa novaPessoa, @PathVariable Long id) {
     	Pessoa p = pessoaRepository.findById(id).get();

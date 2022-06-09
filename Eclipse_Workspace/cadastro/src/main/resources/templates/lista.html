@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Lista</title>
+</head>
+<body>
+	<p>Pessoa inserida com sucesso!</p>
+	<br>
+	<h1>Lista de Pessoas</h1>
+	<table>
+		<thead>
+			<tr>
+				<th>Id</th>
+				<th>Nome</th>
+				<th>Email</th>
+				<th>Fone</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr th:each="listaPessoa : ${listaPessoa}">
+				<td th:text="${listaPessoa.id}"></td>
+				<td th:text="${listaPessoa.nome}"></td>
+				<td th:text="${listaPessoa.email}"></td>
+				<td th:text="${listaPessoa.fone}"></td>
+			</tr>
+		</tbody>
+
+
+	</table>
+	<br>
+	<a href="/cadastro"> Adicionar nova pessoa</a>
+</body>
+</html>
