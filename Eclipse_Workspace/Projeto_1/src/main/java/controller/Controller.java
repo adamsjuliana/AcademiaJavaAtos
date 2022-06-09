@@ -19,7 +19,7 @@ public class Controller extends HttpServlet {
 	JavaBeans produto = new JavaBeans(); //Objeto para armazenar dados temporariamente
 	
        
-    public Controller() {
+public Controller() {
         super();
     }
 
@@ -105,4 +105,5 @@ protected void removerProdutos(HttpServletRequest request, HttpServletResponse r
 	dao.deletarProduto(produto);
 	response.sendRedirect("read");
 }
+
 }

@@ -25,45 +25,45 @@ public class JavaBeans {
 	public String getId() {
 		return id;
 	}
-
-	public void setId(String id) {
-		this.id = id;
-	}
-
+	
 	public String getCodigo() {
 		return codigo;
+	}
+
+	public String getNome() {
+		return nome;
+	}
+	
+	public String getCategoria() {
+		return categoria;
+	}	
+	
+	public String getValor() {
+		return valor;
+	}	
+	
+	public String getQuantidade() {
+		return quantidade;
+	}	
+	
+	public void setId(String id) {
+		this.id = id;
 	}
 
 	public void setCodigo(String codigo) {
 		this.codigo = codigo;
 	}
 
-	public String getNome() {
-		return nome;
-	}
-
 	public void setNome(String nome) {
 		this.nome = nome;
-	}
-
-	public String getCategoria() {
-		return categoria;
 	}
 
 	public void setCategoria(String categoria) {
 		this.categoria = categoria;
 	}
 
-	public String getValor() {
-		return valor;
-	}
-
 	public void setValor(String valor) {
 		this.valor = valor;
-	}
-
-	public String getQuantidade() {
-		return quantidade;
 	}
 
 	public void setQuantidade(String quantidade) {

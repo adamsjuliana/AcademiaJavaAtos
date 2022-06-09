@@ -25,13 +25,11 @@
             <div class="conteudo-principal-escrito">
                 <form name="frmCadastro" action = "update">
                     <div class="conteudo-principal-escrito-form">
-                        <label class="conteudo-principal-escrito-label">Id</label>
-                        <input type="text" class="conteudo-principal-escrito-input" name="id"
+                        <input type="hidden" class="conteudo-principal-escrito-input" name="id"
                         placeholder="Insira o id" value="<%out.print(request.getAttribute("id"));%>">
-                    </div>
                     <div class="conteudo-principal-escrito-form">
                         <label class="conteudo-principal-escrito-label">Código</label>
-                        <input type="text" class="conteudo-principal-escrito-input" name="codigo"
+                        <input type="number" class="conteudo-principal-escrito-input" name="codigo"
                         placeholder="Insira o código" value="<%out.print(request.getAttribute("codigo"));%>">
                     </div>
                     <div class="conteudo-principal-escrito-form">
@@ -46,12 +44,12 @@
                     </div>
                     <div class="conteudo-principal-escrito-form">
                         <label class="conteudo-principal-escrito-label">Valor</label>
-                        <input type="text" class="conteudo-principal-escrito-input" name="valor"
+                        <input type="number" class="conteudo-principal-escrito-input" name="valor"
                         placeholder="Insira o valor em R$" value="<%out.print(request.getAttribute("valor"));%>"> 
                     </div>
                     <div class="conteudo-principal-escrito-form">
                         <label class="conteudo-principal-escrito-label">Quantidade</label>
-                        <input type="text" class="conteudo-principal-escrito-input" name="quantidade"
+                        <input type="number" class="conteudo-principal-escrito-input" name="quantidade"
                         placeholder="Insira a quantidade" value="<%out.print(request.getAttribute("quantidade"));%>">
                     </div>
                     <div class="conteudo-principal-escrito-botao">

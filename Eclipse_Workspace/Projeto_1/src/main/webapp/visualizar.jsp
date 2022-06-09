@@ -39,7 +39,7 @@
         <table>
             <thead>
                 <tr>
-                    <th>ID</th>
+
                     <th>Código</th>
                     <th>Nome</th>
                     <th>Categorial</th>
@@ -53,7 +53,7 @@
 		<tbody>
 			<%for(int i=0; i<lista.size(); i++){ %>
 				<tr>
-					<td><%=lista.get(i).getId() %></td>
+
 					<td><%=lista.get(i).getCodigo() %></td>
 					<td><%=lista.get(i).getNome() %></td>
 					<td><%=lista.get(i).getCategoria() %></td>

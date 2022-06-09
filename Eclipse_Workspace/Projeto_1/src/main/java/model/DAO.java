@@ -39,7 +39,7 @@ public class DAO {
 			pst.setString(1, produto.getCodigo());
 			pst.setString(2, produto.getNome());
 			pst.setString(3, produto.getCategoria());
-			pst.setString(4, produto.getValor());
+			pst.setString(4, produto.getValor().replaceAll(",", "."));
 			pst.setString(5, produto.getQuantidade());
 			// excutar a query
 			pst.executeUpdate();
@@ -58,7 +58,7 @@ public class DAO {
 			pst.setString(1, produto.getCodigo());
 			pst.setString(2, produto.getNome());
 			pst.setString(3, produto.getCategoria());
-			pst.setString(4, produto.getValor());
+			pst.setString(4, produto.getValor().replaceAll(",", "."));
 			pst.setString(5, produto.getQuantidade());
 			pst.setString(6, produto.getId());
 			pst.executeUpdate();
@@ -114,7 +114,7 @@ public class DAO {
 
 	public ArrayList<JavaBeans> listarProdutos() {
 		ArrayList<JavaBeans> produtos = new ArrayList<JavaBeans>();
-		String read = "select * from produto order by categoria;";
+		String read = "select * from produto order by nome;";
 
 		try {
 			//Abre conexão
