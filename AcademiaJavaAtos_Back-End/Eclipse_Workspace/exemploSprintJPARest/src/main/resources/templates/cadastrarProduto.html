@@ -1,0 +1,18 @@
+<!DOCTYPE HTML>
+<html xmlns:th="https://www.thymeleaf.org">
+<head> 
+    <title>Formulário de Cadastro de Produtos</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+	<h1>Cadastrar Produtos</h1>
+    <form action="#" th:action="@{/produtos/cadastrar}" th:object="${produto}" method="post">
+        <p>Código: <input type="text" th:field="*{codigo}" /></p>
+		<p>Nome: <input type="text" th:field="*{nome}" /></p>
+		<p>Categoria: <input type="text" th:field="*{categoria}" /></p>
+		<p>Valor: <input type="text" th:field="*{valor}" /></p>
+		<p>Quantidade: <input type="text" th:field="*{quantidade}" /></p>
+        <p><input type="submit" value="Cadastrar" /> <input type="reset" value="Reset" /></p>
+    </form>
+</body>
+</html>
