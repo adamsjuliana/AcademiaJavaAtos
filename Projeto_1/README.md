@@ -36,4 +36,6 @@ Utilizando os conhecimentos adquiridos até o momento (Banco de dados, Java OO, 
 
 Para o Banco de dados utilizar a entidade representada na imagem abaixo.
 
-<img align="center" alt="Avatar" height="150" src="https://raw.githubusercontent.com/adamsjuliana/adamsjuliana/main/avatar.png">
+<div align="center">
+<img alt="Produto" src="https://raw.githubusercontent.com/adamsjuliana/AcademiaJavaAtos/main/Projeto_1/src/main/webapp/imagens/bdproduto.png">
+</div>
