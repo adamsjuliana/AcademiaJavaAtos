@@ -1,6 +1,6 @@
 # Disciplina Front-End
 
-# HTML
+## HTML
 - Conceito de HTML
 - Evolução do HTML
 - Arquitetura
@@ -12,7 +12,7 @@
 - Atributos globais
 - Formulários e inputs
 
-# CSS
+## CSS
 - Conceito de CSS
 - Evolução do CSS
 - Estilo e posicionamento de elementos
@@ -25,7 +25,7 @@
 - Viewports
 - Frameworks
 
-# Javascript
+## Javascript
 - Conceito de Javascript
 - Variáveis
 - Condicionais
@@ -42,7 +42,7 @@
 - Compatibilidade
 - Protocolos e DNS
 
-# Material de apoio
+## Material de apoio
 
 - W3c (World Wide Web Consortium)
 http://w3.org/
