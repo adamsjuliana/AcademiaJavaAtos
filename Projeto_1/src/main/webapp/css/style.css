@@ -140,19 +140,18 @@ body{
     width: 25rem;
     font-size: 18px;
     height: 3rem;
+    color: #555555;
     border: 1px solid white;
     background-color: rgb(246, 252, 255);
     border-radius: 8px;
     font-family: 'Sarala', sans-serif;
     box-shadow: 2px 2px 1px #cfd9df;
     text-indent: 2rem;
+    outline: none;
+    letter-spacing: 1px;
 }
 .conteudo-principal-escrito-input:hover{
-    border: 1px solid #555;
     background: white;
-}
-.conteudo-principal-escrito-input:focus{
-    border: 0.4px solid #555;
 }
 .conteudo-principal-lista{
     font-family: 'Sarala', sans-serif;
@@ -242,15 +241,4 @@ tr{
 }
 .fa-pen-to-square{
     color: #1e5b77;
-}
-input[type=number]::-webkit-inner-spin-button { 
-  all: unset; 
-  min-width: 21px;
-  min-height: 45px;
-  margin: 17px;
-  padding: 0px;
-  background-image: linear-gradient(to top, transparent 0px, transparent 16px, #fff 16px, #fff 26px, transparent 26px, transparent 35px, #555 35px,#555 36px,transparent 36px, transparent 40px),
-  linear-gradient(to right, transparent 0px, transparent 10px, #555 10px, #555 11px, transparent 11px, transparent 21px);
-  transform: rotate(90deg) scale(0.8, 0.9);
-  cursor:pointer;
 }
