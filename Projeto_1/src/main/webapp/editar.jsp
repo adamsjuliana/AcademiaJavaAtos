@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"
     pageEncoding="utf-8"%>
-    <%@page import="model.JavaBeans" %>
+    <%@page import="model.Produtos" %>
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -14,7 +14,6 @@
         <h2 class="cabecalho-titulo">Editar</h2>
         <nav class="cabecalho-menu">
             <a class="cabecalho-menu-item" href="home">Página Inicial</a>
-            <a class="cabecalho-menu-item" href="about">Sobre</a>
             <a class="cabecalho-menu-item" href="create">Cadastrar</a>
             <a class="cabecalho-menu-item" href="read">Visualizar</a>
         </nav>

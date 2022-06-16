@@ -30,7 +30,7 @@ public class DAO {
 		}
 	}
 
-	public void inserirProduto(JavaBeans produto) {
+	public void inserirProduto(Produtos produto) {
 		String create = "insert into produto (codigo, nome, categoria, valor, quantidade) values (?,?,?,?,?);";
 
 		try {
@@ -50,7 +50,7 @@ public class DAO {
 		}
 	}
 
-	public void alterarProduto(JavaBeans produto) {
+	public void alterarProduto(Produtos produto) {
 		String update = "update produto set codigo = ?, nome = ?, categoria = ?, valor = ?, quantidade = ? where id = ?";
 		try {
 			Connection con = conectar();
@@ -70,7 +70,7 @@ public class DAO {
 		}
 	}
 
-	public void selecionarProduto(JavaBeans produto) {
+	public void selecionarProduto(Produtos produto) {
 		String read2 = "select * from produto where id = ?;";
 		try {
 			Connection con = conectar();
@@ -85,14 +85,13 @@ public class DAO {
 				produto.setCategoria(rs.getString(4));
 				produto.setValor(rs.getString(5));
 				produto.setQuantidade(rs.getString(6));
-
 			}
 			con.close();
 		} catch (Exception e) {
 			System.out.println(e);
 		}}
 	
-	public void deletarProduto(JavaBeans produto) {
+	public void deletarProduto(Produtos produto) {
 		String delete = "delete from produto where id = ?;";
 		try {
 			//Abre conexão
@@ -112,8 +111,8 @@ public class DAO {
 
 	}
 
-	public ArrayList<JavaBeans> listarProdutos() {
-		ArrayList<JavaBeans> produtos = new ArrayList<JavaBeans>();
+	public ArrayList<Produtos> listarProdutos() {
+		ArrayList<Produtos> produtos = new ArrayList<Produtos>();
 		String read = "select * from produto order by nome;";
 
 		try {
@@ -132,7 +131,7 @@ public class DAO {
 				String valor = rs.getString(5);
 				String quantidade = rs.getString(6);
 				// armazenar os valores no ArrayList
-				produtos.add(new JavaBeans(id, codigo, nome, categoria, valor, quantidade));
+				produtos.add(new Produtos(id, codigo, nome, categoria, valor, quantidade));
 			}
 			//Encerra a conexão
 			con.close();

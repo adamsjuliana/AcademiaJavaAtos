@@ -10,15 +10,14 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import model.DAO;
-import model.JavaBeans;
+import model.Produtos;
 
-@WebServlet(urlPatterns = {"/home", "/create", "/read", "/delete", "/insert", "/edit", "/select", "/update", "/about"})
+@WebServlet(urlPatterns = {"/home", "/create", "/read", "/delete", "/insert", "/edit", "/select", "/update"})
 public class Controller extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	DAO dao = new DAO(); //Objeto de acesso ao bd
-	JavaBeans produto = new JavaBeans(); //Objeto para armazenar dados temporariamente
-	
-       
+	Produtos produto = new Produtos(); //Objeto para armazenar dados temporariamente
+
 public Controller() {
         super();
     }
@@ -31,9 +30,6 @@ protected void doGet(HttpServletRequest request, HttpServletResponse response) t
 		else if(action.equals("/create")) {
 		response.sendRedirect("cadastrar.html");
 		}
-		else if(action.equals("/about")) {
-		response.sendRedirect("sobre.html");
-		}
 		else if(action.equals("/read")) {
 		listarProdutos(request, response);
 		response.sendRedirect("visualizar.jsp");
@@ -45,7 +41,7 @@ protected void doGet(HttpServletRequest request, HttpServletResponse response) t
 		removerProdutos(request, response);
 		}
 		else if(action.equals("/update")) {
-		editandoProdutos(request,response);
+		editarProdutos(request,response);
 		}
 		else if(action.equals("/select")) {
 		recuperarProdutos(request,response);
@@ -63,7 +59,7 @@ protected void adicionarProdutos(HttpServletRequest request, HttpServletResponse
 	response.sendRedirect("read");
 }
 
-protected void editandoProdutos(HttpServletRequest request, HttpServletResponse response)
+protected void editarProdutos(HttpServletRequest request, HttpServletResponse response)
 		throws ServletException, IOException {
 	//System.out.println(request.getParameter("id"));
 	produto.setId(request.getParameter("id"));
@@ -79,10 +75,11 @@ protected void editandoProdutos(HttpServletRequest request, HttpServletResponse 
 }
 
 protected void listarProdutos(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-	ArrayList<JavaBeans> lista = dao.listarProdutos();
+	ArrayList<Produtos> lista = dao.listarProdutos();
 	request.setAttribute("produtos", lista);
 	RequestDispatcher rd = request.getRequestDispatcher("visualizar.jsp");
-	rd.forward(request, response);	
+	rd.forward(request, response);
+	response.sendRedirect("visualizar.jsp");
 }
 
 protected void recuperarProdutos(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

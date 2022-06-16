@@ -6,11 +6,11 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
-@Entity
+@Entity //Hibernate cria tabela de classe
 public class Produto{
-	@Id
+	@Id //Identificador do BD
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private final Long id = null;
+	private Long id = null;
 	@Column(nullable=false, unique=true)
 	private int codigo;
 	@Column(nullable=false, length=50)

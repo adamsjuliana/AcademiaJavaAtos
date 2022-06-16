@@ -1,11 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"
 	pageEncoding="utf-8"%>
-<%@page import="model.JavaBeans"%>
+<%@page import="model.Produtos"%>
 <%@page import="java.util.ArrayList"%>
 
 <%
 @SuppressWarnings("unchecked")
-ArrayList<JavaBeans> lista = (ArrayList<JavaBeans>) request.getAttribute("produtos");
+ArrayList<Produtos> lista = (ArrayList<Produtos>) request.getAttribute("produtos");
 %>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -23,8 +23,7 @@ ArrayList<JavaBeans> lista = (ArrayList<JavaBeans>) request.getAttribute("produt
 	<header class="cabecalho">
 		<h2 class="cabecalho-titulo">Visualizar</h2>
 		<nav class="cabecalho-menu">
-			<a class="cabecalho-menu-item" href="home">Página Inicial</a> <a
-				class="cabecalho-menu-item" href="about">Sobre</a> <a
+			<a class="cabecalho-menu-item" href="home">Página Inicial</a>  <a
 				class="cabecalho-menu-item" href="create">Cadastrar</a> <a
 				class="cabecalho-menu-item" href="read">Visualizar</a>
 		</nav>
