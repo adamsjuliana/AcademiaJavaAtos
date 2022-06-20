@@ -53,6 +53,8 @@ body{
     margin-bottom: 48px;
     display: flex;
     flex-direction: column;
+	height: 600px;
+    justify-content: center;
 }
 .conteudo-principal{
     display: flex;
@@ -88,7 +90,6 @@ body{
     text-indent: 4rem;
     font-weight: 400;
     font-size: 18px;
-    text-align: justify;
     color: #555;
 }
 .conteudo-principal-escrito-botao{
@@ -177,6 +178,7 @@ body{
     padding: 20px;
     font-family: 'Sarala', sans-serif;
     gap: 5px;
+    width: 300px;
 }
 .conteudo-secundario-titulo{
     border-top: 0.4px solid #555;

@@ -34,16 +34,18 @@ public class DAO {
 		String create = "insert into produto (codigo, nome, categoria, valor, quantidade) values (?,?,?,?,?);";
 
 		try {
+			//Abre conexão
 			Connection con = conectar();
+			//Prepara a query
 			PreparedStatement pst = con.prepareStatement(create);
 			pst.setString(1, produto.getCodigo());
 			pst.setString(2, produto.getNome());
 			pst.setString(3, produto.getCategoria());
 			pst.setString(4, produto.getValor().replaceAll(",", "."));
 			pst.setString(5, produto.getQuantidade());
-			// excutar a query
+			// executar a query
 			pst.executeUpdate();
-			// Encerar conexão
+			// Encerrar conexão
 			con.close();
 		} catch (Exception e) {
 			System.out.println(e);
@@ -53,7 +55,9 @@ public class DAO {
 	public void alterarProduto(Produtos produto) {
 		String update = "update produto set codigo = ?, nome = ?, categoria = ?, valor = ?, quantidade = ? where id = ?";
 		try {
+			//Abre conexão
 			Connection con = conectar();
+			//Prepara a query
 			PreparedStatement pst = con.prepareStatement(update);
 			pst.setString(1, produto.getCodigo());
 			pst.setString(2, produto.getNome());
@@ -61,8 +65,9 @@ public class DAO {
 			pst.setString(4, produto.getValor().replaceAll(",", "."));
 			pst.setString(5, produto.getQuantidade());
 			pst.setString(6, produto.getId());
+			// executar a query
 			pst.executeUpdate();
-			// Encerrar a conex�o
+			// Encerrar a conexão
 			con.close();
 
 		} catch (Exception e) {
@@ -73,12 +78,14 @@ public class DAO {
 	public void selecionarProduto(Produtos produto) {
 		String read2 = "select * from produto where id = ?;";
 		try {
+			//Abre conexão
 			Connection con = conectar();
+			//Prepara a query
 			PreparedStatement pst = con.prepareStatement(read2);
 			pst.setString(1, produto.getId());
 			ResultSet rs = pst.executeQuery();
 			while (rs.next()) {
-				// setar as variavies JavaBeans
+				//setar as variaveis
 				produto.setId(rs.getString(1));
 				produto.setCodigo(rs.getString(2));
 				produto.setNome(rs.getString(3));

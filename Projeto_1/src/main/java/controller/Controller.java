@@ -49,7 +49,6 @@ protected void doGet(HttpServletRequest request, HttpServletResponse response) t
 		}
 
 protected void adicionarProdutos(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-	//System.out.println("Nome: " + request.getParameter("nome"));
 	produto.setCodigo(request.getParameter("codigo"));
 	produto.setNome(request.getParameter("nome"));
 	produto.setCategoria(request.getParameter("categoria"));
@@ -61,7 +60,6 @@ protected void adicionarProdutos(HttpServletRequest request, HttpServletResponse
 
 protected void editarProdutos(HttpServletRequest request, HttpServletResponse response)
 		throws ServletException, IOException {
-	//System.out.println(request.getParameter("id"));
 	produto.setId(request.getParameter("id"));
 	produto.setCodigo(request.getParameter("codigo"));
 	produto.setNome(request.getParameter("nome"));
@@ -70,7 +68,7 @@ protected void editarProdutos(HttpServletRequest request, HttpServletResponse re
 	produto.setQuantidade(request.getParameter("quantidade"));
 	//executar o metodo de alterar aluno
 	dao.alterarProduto(produto);
-	//redirecionar para o documento alunos.jsp atulaiznaod as asltera��es
+	//redirecionar para o documento visualizar.jsp
 	response.sendRedirect("read");
 }
 
