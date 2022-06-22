@@ -1,0 +1,94 @@
+*{
+    margin: 0;
+    padding: 0;
+    text-align: center;
+}
+/* Default/Static */
+.pai1{
+    border: 1px solid #555;
+    width: 500px;
+    height: 500px;
+    margin: auto;
+    position: static;
+}
+.filho11{
+    background: rgb(81, 71, 134);
+    width: 150px;
+    height: 150px;
+}
+.filho12{
+    background: rgb(71, 127, 134);
+    width: 150px;
+    height: 150px;
+}
+/* Relative */
+.pai2{
+    border: 1px solid #555;
+    width: 500px;
+    height: 500px;
+    margin: auto;
+}
+.filho21{
+    background: rgb(81, 71, 134);
+    width: 150px;
+    height: 150px;
+    position: relative;
+    top: 50px;
+    left: 50px;
+}
+.filho22{
+    background: rgb(71, 127, 134);
+    width: 150px;
+    height: 150px;
+    position: relative;
+    top: 200px;
+    left: 350px;
+}
+
+/* Absolute */
+.pai3{
+    border: 1px solid #555;
+    width: 500px;
+    height: 500px;
+    margin: auto;
+    position: relative;
+}
+.filho31{
+    background: rgb(81, 71, 134);
+    width: 150px;
+    height: 150px;
+    color: white;
+    text-align: center;
+    position: absolute;
+    bottom: 0;
+}
+.filho32{
+    background: rgb(71, 127, 134);
+    width: 150px;
+    height: 150px;
+    color: white;
+    text-align: center;
+    position: absolute;
+}
+
+/* Sticky */
+
+.pai4{
+    border: 1px solid #555;
+    width: 500px;
+    height: 500px;
+    margin: auto;
+    position: sticky;
+}
+.filho41{
+    background: rgb(81, 71, 134);
+    width: 150px;
+    height: 150px;
+    position: relative;
+}
+.filho42{
+    background: rgb(71, 127, 134);
+    width: 150px;
+    height: 150px;
+    position: relative;
+}
