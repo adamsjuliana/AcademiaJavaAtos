@@ -3,20 +3,16 @@ package com.example.SpringSecurity.Models;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
+import javax.persistence.Id;
 
 @Entity(name = "tbl_usuarios")
 public class Usuario {
-	@javax.persistence.Id
+	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	private String email;
 	private String senha;
 	private String role;
-	
-	@Override
-	public String toString() {
-		return "Usuario [id=" + id + ", email=" + email + ", senha=" + senha + ", role=" + role + "]";
-	}	
 	
 	public Long getId() {
 		return id;
@@ -41,14 +37,6 @@ public class Usuario {
 		return role;
 	}
 	public void setRole(String role) {
-		this.role = role;
-	}
-
-	public Usuario(Long id, String email, String senha, String role) {
-		super();
-		this.id = id;
-		this.email = email;
-		this.senha = senha;
 		this.role = role;
 	}
 

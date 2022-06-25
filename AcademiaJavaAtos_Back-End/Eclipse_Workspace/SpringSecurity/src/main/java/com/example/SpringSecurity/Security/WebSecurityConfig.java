@@ -26,7 +26,7 @@ public class WebSecurityConfig {
 	@Bean //Bean que é responsável pela liberação de acesso ou não a uma determinada view.
 	protected SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
 		http.authorizeRequests()
-		.antMatchers("/", "home").permitAll() //acesso irrestrito (Sem usuário e Senha) para as view "/" e "/home"
+		.antMatchers("/").hasAuthority("ROLE_ADMIN") //.antMatchers("/", "/home").permitAll() //acesso irrestrito (Sem usuário e Senha) para as view "/" e "/home"
 		.anyRequest().authenticated()	//define acesso autenticado para as demais views (Nesse caso "/hello")
 		.and()
 		.formLogin()
@@ -46,11 +46,11 @@ public class WebSecurityConfig {
 			usuarioTemp = usuarios.get(i);
 			System.out.println(usuarioTemp.getEmail());
 			//withDetaultPasswordEncoder não criptografa a senha. Só utilizado para fins de estudo.
-			userDetailsList.add(User.withDefaultPasswordEncoder()
+			userDetailsList.add(User
+					.withDefaultPasswordEncoder()
 					.username(usuarioTemp.getEmail().toString())
 					.password(usuarioTemp.getSenha().toString())
-					.roles(usuarioTemp.getRole().toString())
-					.build());
+					.roles(usuarioTemp.getRole().toString()).build());
 			
 		}
 			

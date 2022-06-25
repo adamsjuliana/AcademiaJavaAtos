@@ -9,22 +9,20 @@ height: 100vh;
 align-items: center;
 }
 .container{
-    background-color: red;
+    background-color: blue;
     width: 800px;
     height: 600px;
     border-radius: 50px;
     display: flex;
-    flex-direction: column;
+    flex-direction: column-reverse;
     justify-content: space-between;
     overflow: hidden;
+    align-items: flex-end;
 }
 .div{
-    background-color: blue;
+    background-color: red;
     width: 150px;
     height: 100px;
-    right: 0;
-    position: relative;
-    left: 650px;
     text-align: center;
     color: white;
     display: flex;
