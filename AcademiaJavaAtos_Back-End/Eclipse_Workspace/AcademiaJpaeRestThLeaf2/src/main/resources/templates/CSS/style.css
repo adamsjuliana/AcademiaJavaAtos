@@ -1,0 +1,154 @@
+@import url('https://fonts.googleapis.com/css2?family=Titillium+Web:wght@300;400;700&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+    font-family: 'Titillium Web', sans-serif;
+}
+body{
+    width: 100vw;
+    height: 100vh;
+    background-image: url(../Imagens/bg.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: scroll;
+    color: #f1f1f1;
+}
+.conteudo{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100vw;
+    height: 100vh;
+    text-align: center;
+    gap: 2rem;
+}
+.home a{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 180px;
+    gap: 1rem;
+    height: 200px;
+    font-weight: 700;
+    border: 1px solid #f1f1f1;
+    border-radius: 5px;
+    backdrop-filter: blur(12px);
+    color: #f1f1f1;
+    box-shadow: 0 0 50px rgba(0,0,0,0.3)
+}
+.home i{
+    font-size: 3rem;
+}
+.lista{
+    flex-direction: column;
+}
+.formul{
+    max-width: 700px;
+    border: 1px solid #f1f1f1;
+    padding: 2rem;
+    border-radius: 5px;
+    backdrop-filter: blur(18px);
+    box-shadow: 0 0 15px rgba(0,0,0,0.3)
+}
+.formul label{
+    display: inline-block;
+    width: 100px;
+}
+.formul form{
+    margin-top: 20px;
+}
+.formul input[type="text"], .formul input[type="number"] {
+    width: 300px;
+    height: 30px;
+    margin: 3px 0;
+    background: rgba(0,0,0,0.5);
+    border: none;
+}
+.formul input[type="submit"], .formul input[type="reset"], .formul input[type="button"] {
+    margin: 10px 8px;
+    background: transparent;
+    backdrop-filter: blur(28px);
+    border-radius: 5px;
+    color: #f1f1f1;
+    border: 1px solid #555;
+    font-size: 1rem;
+    padding: 5px;
+    width: 120px;
+}
+.lista table{
+    margin: 30px auto;
+    border-collapse: collapse;
+    width: 700px;
+}
+.lista table thead{
+    text-transform: uppercase;
+    background: rgba(0,0,0,0.5);
+}
+.lista table tr{
+    border: 1px solid #ddd;
+}
+.lista table tbody td:nth-child(1),
+.lista table tbody td:nth-child(2),
+.lista table tbody td:nth-child(5),
+.lista table tbody td:nth-child(6),
+.lista table tbody td:nth-child(7),
+.lista table tbody td:nth-child(8){
+    text-align: center;
+}
+.lista table tbody tr:hover{
+    background: rgba(0,0,0,0.2);
+    cursor: pointer;
+}
+.lista table th,
+.lista table td{
+    padding: 8px 8px;
+}
+.botao{
+    border-radius: 5px;
+    border: 1px solid #f1f1f1;
+    font-size: 1rem;
+    padding: 5px;
+    width: 200px;
+    color: #f1f1f1;
+}
+.formul input[type="submit"]:hover,
+.formul input[type="reset"]:hover,
+.formul input[type="button"]:hover,
+.menu a:hover,
+.botao:hover {
+    transition:0.3s;
+    transform:scale(1.1);
+    cursor:pointer;
+    z-index:2;
+}
+.menu a{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    color: #f1f1f1;
+    background-color: #555;
+    border: 1px solid #f1f1f1;
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    margin: 20px;
+    padding: 1rem;
+    font-size: 1.3rem;
+}
+.menu .cad{
+    margin-top: 90px;
+}
+.menu .lis{
+    margin-top: 160px;
+}
+.credit{
+    position: absolute;
+    bottom: 0;
+    font-size: 13px;
+}
+.credit a{
+    color: #f1f1f1;
+}

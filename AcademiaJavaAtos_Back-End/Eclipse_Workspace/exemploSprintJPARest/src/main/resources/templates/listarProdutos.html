@@ -3,8 +3,16 @@
 <head>
 <title>Listar Produtos</title>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="stylesheet" href="css/style.css">
 </head>
 <body>
+	<div class="menu">
+        <a href="/produtos/"><i class="fa-solid fa-house"></i></a></a>
+        <a class="cad" href="cadastrar"><i class="fa-solid fa-plus"></i></a>
+        <a class="lis" href="listar"><i class="fa-solid fa-list"></i></a></a>
+    </div>
+	<div class="conteudo lista">
+		<div class="formul">
 	<h1>Listar Produtos</h1>
 	<table>
 		<thead>
@@ -27,11 +35,14 @@
 				<td th:text="${p.categoria}"></td>
 				<td th:text="${p.valor}"></td>
 				<td th:text="${p.quantidade}"></td>
-				<td><a th:href="@{/produtos/excluir/{id} (id=${p.id})}">Excluir</a></td>
-				<td><a th:href="@{/produtos/alterar/{id} (id=${p.id})}">Editar</a></td>	
+				<td><a th:href="@{/produtos/excluir/{id} (id=${p.id})}"><i class="fa-solid fa-trash-can"></i></a></td>
+				<td><a th:href="@{/produtos/alterar/{id} (id=${p.id})}"><i class="fa-solid fa-pen-to-square"></i></a></td>	
 			</tr>
 		</tbody>
 	</table>
-<a href="cadastrar">Cadastrar outro produto.</a>
+</div>
+<a class="botao" href="cadastrar">Cadastrar outro produto</a>
+</div>
+<script src="https://kit.fontawesome.com/0a84b03181.js" crossorigin="anonymous"></script>
 </body>
 </html>

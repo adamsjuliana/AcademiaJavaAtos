@@ -1,6 +1,5 @@
 package com.adams.crudmysql.model;
 
-import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -11,9 +10,7 @@ public class User {
 	@Id //Identificador do BD
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Integer id;
-	@Column(nullable=false, length=50)
 	private String name;
-	@Column(nullable=false)
 	private String email;
 	
 	public Integer getId() {
@@ -34,4 +31,5 @@ public class User {
 	public void setEmail(String email) {
 		this.email = email;
 	}
+
 }

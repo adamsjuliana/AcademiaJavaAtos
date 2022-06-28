@@ -10,8 +10,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.PutMapping;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import com.adams.exemploSprintJPARest.Models.Produto;
@@ -23,20 +21,26 @@ import com.adams.exemploSprintJPARest.Repositories.ProdutoRepository;
 public class ProdutoController {
 	@Autowired
 	private ProdutoRepository produtoRepository;
-
+	@RequestMapping("/")
+	public String pagInicial() {
+		return "homeProdutos";
+	}
 	@GetMapping("/cadastrar")
 	public String getProdutos(Model model) {
 		model.addAttribute("produto", new Produto());
 		return "cadastrarProduto";
 	}
-    @PostMapping("/cadastrar")
+	@PostMapping("/cadastrar")
     public String setProdutos(@ModelAttribute Produto produto, Model model) {
         produtoRepository.save(produto);
         List<Produto> listaProdutos = produtoRepository.findAll();
         model.addAttribute("produtos", listaProdutos);
         return "listarProdutos";
     }
-
+    @GetMapping("/listar")
+    public String listProdutos() {
+        return "listarProdutos";
+    }
     @DeleteMapping("/excluir/{id}")
     @ResponseStatus(HttpStatus.OK)
     public String excluir(@PathVariable Long id) {

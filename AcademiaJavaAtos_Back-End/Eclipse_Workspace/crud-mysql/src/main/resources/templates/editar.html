@@ -1,0 +1,68 @@
+<!DOCTYPE HTML>
+<html xmlns:th="https://www.thymeleaf.org">
+<head> 
+    <title>Alterar</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<style>
+	*{
+		margin:0;
+		padding: 0;
+        text-decoration: none;
+}
+	body{
+		height: 100vh;
+        width: 100vw;
+		display:flex;
+		justify-content:center;
+  	  	align-items: center;
+  	  	flex-direction: column;
+}
+    .container{
+        border: 1px solid black;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 10px;
+        border-radius: 7px;
+                box-shadow: 2px 2px 20px rgba(0,0,0,0.2);
+                    }
+    label{
+        display: inline-block;
+        width: 50px;
+    }
+    .botoes{
+        display: flex;
+        justify-content: flex-end;
+    }
+    .botao{
+        padding: 5px;
+    }
+    input{
+        margin: 5px;
+    }
+    form{
+        margin: 10px;
+    }
+    a{
+        padding: 10px;
+        color: #555;
+    }
+	.invi{
+	display: none;
+	}
+
+</style>
+<body>
+<div class="container">
+	<h1>Alterar</h1>
+    <form action="#" th:action="@{/crud/update/}" th:object="${user}" method="post">
+       	<label class="invi">ID: </label><input class="invi" type="text" th:field="*{id}" />
+        <p><label>Name: </label><input type="text" th:field="*{name}" /></p>
+		<p><label>E-mail: </label><input type="text" th:field="*{email}" /></p>
+		<div class="botoes"><input class="botao" type="reset" value="Reset"/> <input class="botao" type="submit" value="Cadastrar"/></div>
+    </form>
+       
+</div><a href="/crud/home">Voltar</a>
+</body>
+</html>

@@ -25,6 +25,4 @@ public class pessoasController {
 		model.addAttribute("listaPessoa", lista);
 		return "lista";
 	}
-
-
 }

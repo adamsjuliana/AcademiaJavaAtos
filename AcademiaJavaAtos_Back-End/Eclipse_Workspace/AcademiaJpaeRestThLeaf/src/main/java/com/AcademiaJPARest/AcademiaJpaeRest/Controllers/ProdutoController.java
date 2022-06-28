@@ -23,29 +23,25 @@ import com.AcademiaJPARest.AcademiaJpaeRest.Repositories.ProdutoRepository;
 public class ProdutoController {
 	@Autowired
 	private ProdutoRepository produtoRepository;
+
 	@GetMapping ("/cadastrar")
 	public String getprodutos(Model model) {
 		model.addAttribute("produto", new Produto());
 		return "cadastrarProduto";
 	}
+
 	@PostMapping("/cadastrar")
 	public String adicionar(@ModelAttribute Produto produto, Model model) {
 		produtoRepository.save(produto);
 		List<Produto> listaProdutos = produtoRepository.findAll();
 		model.addAttribute("produtos", listaProdutos);
 		return "listarProdutos";
-	}
-	@GetMapping("/listar")
-	public String listar(@ModelAttribute Produto produto, Model model) {
-		List<Produto> listaProdutos = produtoRepository.findAll();
-		model.addAttribute("produtos", listaProdutos);
-		return "listarProdutos";
+		
 	}
 	@GetMapping("/{id}")
 	Produto getproduto(@PathVariable Long id) {
 		return produtoRepository.findById(id).get();
 	}
-
 	@GetMapping("/excluir/{id}")
 	@ResponseStatus(HttpStatus.OK)
 	public String deleteproduto(@PathVariable Long id, Model model) {
@@ -54,6 +50,7 @@ public class ProdutoController {
 		model.addAttribute("produtos", listaProdutos);
 		return "listarProdutos";
 	}
+	
 	@PostMapping("/excluir/{id}")
 	@ResponseStatus(HttpStatus.OK)
 	public String deleteprodutopost(@PathVariable Long id, Model model) {
@@ -62,12 +59,14 @@ public class ProdutoController {
 		model.addAttribute("produtos", listaProdutos);
 		return "listarProdutos";
 	}
+
 	@GetMapping ("/alterar/{id}")
 	public String altProdutos(@PathVariable Long id, Model model) {
 		Produto p = produtoRepository.findById(id).get();
 		model.addAttribute("produto", p);
 		return "alterarProduto";
 	}
+	
 	@PostMapping("/alterar")
 	public String updateproduto(@ModelAttribute Produto novoProduto, Model model) {
 		Produto p = produtoRepository.findById(novoProduto.getId()).get();
@@ -84,5 +83,7 @@ public class ProdutoController {
 		List<Produto> listaProdutos = produtoRepository.findAll();
 		model.addAttribute("produtos", listaProdutos);
 		return "listarProdutos";
+
 	}
+
 }
