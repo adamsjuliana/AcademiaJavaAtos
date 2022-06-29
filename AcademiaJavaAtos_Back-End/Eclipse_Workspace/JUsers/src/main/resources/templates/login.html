@@ -73,7 +73,7 @@ h1{
     <body>
     <div class="container">
         <h1>Login</h1>
-            <form th:action="@{/login}" method="post">
+            <form th:action="@{/jusers/login}" method="post">
                 <div><label>E-mail: </label><input class="campo" type="text" name="username"/></div>
                 <div><label>Senha: </label><input class="campo" type="password" name="password"/></div>
                 <div class="aviso" th:if="${param.error}">
@@ -84,7 +84,7 @@ h1{
                 </div>
                 <div class="btn"><input class="botao" type="submit" value="Entrar"/></div>
             </form>
-        <div class="pi"><a href="/">Voltar para a página inicial</a></div>
+        <div class="pi"><a href="/jusers">Voltar para a página inicial</a></div>
         </div>
         
     </body>

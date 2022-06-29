@@ -1,7 +1,7 @@
 <!DOCTYPE HTML>
 <html xmlns:th="https://www.thymeleaf.org">
 <head> 
-    <title>JUsers - Cadastrar</title>
+    <title>JUsers - Alterar</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 </head>
 <style>
@@ -54,24 +54,27 @@
     align-items: center;
     justify-content: space-evenly;
 }
+.invi{
+display:none;}
 
 </style>
 <body>
 <div class="container">
-	<h1>Cadastrar</h1>
-    <form action="#" th:action="@{/jusers/add}" th:object="${usuario}" method="post">
+	<h1>Alterar</h1>
+    <form action="#" th:action="@{/jusers/update}" th:object="${usuario}" method="post">
+        <div class="invi"><label>ID: </label><input type="text" th:field="*{id}"/></div>
         <p><label>E-mail: </label><input type="email" th:field="*{email}" required /></p>
-		<p><label>Senha: </label><input type="password" th:field="*{senha}" required /></p>
+		<p><label>Senha: </label><input type="text" th:field="*{senha}" required /></p>
         <div class="radios">
             <span><input type="radio" id="admin" value="ADMIN" th:field="*{role}">
             <label for="admin">ADMIN</label></span>
-
-            <span><input type="radio" id="user" value="USER" th:field="*{role}" checked>
+            
+            <span><input type="radio" id="user" value="USER" th:field="*{role}">
             <label for="user">USER</label></span>
         </div>
-		<div class="botoes"><input class="botao" type="reset" value="Reset"/> <input class="botao" type="submit" value="Cadastrar"/></div>
+		<div class="botoes"><input class="botao" type="reset" value="Reset"/> <input class="botao" type="submit" value="Editar"/></div>
     </form>
        
-</div><a href="/jusers">Voltar</a>
+</div><a href="/jusers/up">Voltar</a>
 </body>
 </html>

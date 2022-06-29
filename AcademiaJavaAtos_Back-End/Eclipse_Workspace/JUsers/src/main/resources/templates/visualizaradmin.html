@@ -41,6 +41,10 @@
 table thead{
     text-transform: uppercase;
 }
+table tbody td:nth-child(3),
+table tbody td:nth-child(4){
+    text-align: center;
+}
 table tr{
     border: 1px solid #ddd;
 }
@@ -62,19 +66,21 @@ table td{
 			<tr>
 				<th>E-mail</th>
 				<th>Role</th>
-
+				<th>Editar</th>
+				<th>Excluir</th>
 			</tr>
 		</thead>
 		<tbody>
 			<tr th:each="u : ${usuario}">
 				<td th:text="${u.email}"></td>
 				<td th:text="${u.role}"></td>
-
+				<td><a th:href="@{/jusers/update/{id} (id=${u.id})}"><i class="fa-solid fa-pen-to-square"></i></a></td>
+				<td><a th:href="@{/jusers/delete/{id} (id=${u.id})}"><i class="fa-solid fa-trash-can"></i></a></td>	
 			</tr>
 		</tbody>
 	</table>
 </div>
 <a href="/jusers">Voltar</a>
-
+<script src="https://kit.fontawesome.com/0a84b03181.js" crossorigin="anonymous"></script>
 </body>
 </html>

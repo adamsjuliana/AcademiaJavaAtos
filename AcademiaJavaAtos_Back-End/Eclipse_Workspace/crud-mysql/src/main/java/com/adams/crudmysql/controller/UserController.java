@@ -59,7 +59,6 @@ public class UserController {
     User getUser(@PathVariable Integer id) {
     	return userRepository.findById(id).get();
     }
-    
     @GetMapping(path="/update/{id}")
     public String altUser(@PathVariable Integer id, Model model) {
     	User u = userRepository.findById(id).get();

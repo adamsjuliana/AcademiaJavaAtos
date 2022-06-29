@@ -6,6 +6,9 @@
     font-family: 'Titillium Web', sans-serif;
     color: black;    
 }
+html{
+    scroll-behavior: smooth;
+}
 body{
     background: #555;
     display: flex;
@@ -13,7 +16,6 @@ body{
     justify-content: center;
     align-items: center;
     background: white;
-
 }
 main{
     background: white;
@@ -171,6 +173,7 @@ table thead{
 table tr{
     border: 1px solid #ddd;
 }
+
 table tbody td:nth-child(1),
 table tbody td:nth-child(4),
 table tbody td:nth-child(5),

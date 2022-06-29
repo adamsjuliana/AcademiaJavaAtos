@@ -14,7 +14,7 @@
                 height: 100vh;
                 display: flex;
                 flex-direction: column;
-                justify-content: space-evenly;
+                justify-content: center;
                 align-items: center;
             }
             .container{
@@ -72,15 +72,15 @@
         
         <div class="btn">
             <h1 th:inline="text">Olá [[${#httpServletRequest.remoteUser}]]!</h1>
-            <a href="/login"><button class="botao">Entrar</button></a>
+            <a href="/jusers/login"><button class="botao">Entrar</button></a>
         <form th:action="@{/logout}" method="post">
             <input class="botao" type="submit" value="Sair"/>
         </form>
         </div>
     <div class="container">
-        <a class="menu" href="/add">Cadastrar</a>
-        <a class="menu" href="/all">Visualizar</a>
-        <a class="menu" href="/up">Deletar/<br>Alterar</a>
+        <a class="menu" href="/jusers/add">Cadastrar</a>
+        <a class="menu" href="/jusers/all">Visualizar</a>
+        <a class="menu" href="/jusers/up">Deletar/<br>Alterar</a>
     </div>
     </body>
 </html>

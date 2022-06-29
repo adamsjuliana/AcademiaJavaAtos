@@ -24,26 +24,14 @@ public class WebSecurityConfig {
 	private UsuarioRepository usuarioRepository;
 
 	@Bean //Bean que é responsável pela liberação de acesso ou não a uma determinada view.
-	protected SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
-		http.authorizeRequests()
-		.antMatchers("/", "/home").permitAll() //acesso irrestrito (Sem usuário e Senha) para as view "/" e "/home" //.antMatchers("/").hasAuthority("ROLE_ADMIN") 
-		.anyRequest().authenticated()	//define acesso autenticado para as demais views (Nesse caso "/hello")
-		.and()
-		.formLogin()
-			.loginPage("/login").permitAll() //Configura o acesso a view de login e da acesso irrestrito a ela
-			.and()
-		.logout()
-			.permitAll();
-		return http.build();
-	}
-	@Bean //Bean que é responsável pela liberação de acesso ou não a uma determinada view.
 	protected SecurityFilterChain filterChain1(HttpSecurity http) throws Exception {
 		http.authorizeRequests()
-		.antMatchers("/add").hasAuthority("ROLE_ADMIN") 
+		.antMatchers("/jusers").permitAll()
+		.antMatchers("/jusers/up", "/jusers/add").hasAuthority("ROLE_ADMIN")
 		.anyRequest().authenticated()
 		.and()
 		.formLogin()
-			.loginPage("/login").permitAll() //Configura o acesso a view de login e da acesso irrestrito a ela
+			.loginPage("/jusers/login").permitAll() //Configura o acesso a view de login e da acesso irrestrito a ela
 			.and()
 		.logout()
 			.permitAll();
@@ -57,17 +45,14 @@ public class WebSecurityConfig {
 		List<UserDetails> userDetailsList = new ArrayList<>();
 		for (int i=0; i<usuarios.size(); i++) {
 			usuarioTemp = usuarios.get(i);
-			System.out.println(usuarioTemp.getEmail());
+			//System.out.println(usuarioTemp.getEmail());
 			//withDetaultPasswordEncoder não criptografa a senha. Só utilizado para fins de estudo.
 			userDetailsList.add(User
 					.withDefaultPasswordEncoder()
 					.username(usuarioTemp.getEmail().toString())
 					.password(usuarioTemp.getSenha().toString())
 					.roles(usuarioTemp.getRole().toString()).build());
-			
 		}
-			
 		return new InMemoryUserDetailsManager(userDetailsList);
 	}
-
 }
