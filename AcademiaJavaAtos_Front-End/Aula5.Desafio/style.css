@@ -199,7 +199,6 @@ table td{
     right: 30px;
     z-index: 99;
     border: 1px solid #555;
-    box-shadow: 0 0 50px rgba(0,0,0,0.3);
     background-color: rgb(255, 255, 255); /* Set a background color */
     color: #555; 
     cursor: pointer;
