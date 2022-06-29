@@ -8,6 +8,7 @@
     <title>Tabela Periódica</title>
 </head>
 <body>
+  <button onclick="topFunction()" id="inicio" title="Go to top">Top</button>
 <main>
   <h1>Tabela Periódica</h1>
   <div class="container-tp1">
@@ -107,7 +108,7 @@
     </a>
     <a href="#7">
       <div class="elemento nmetal">
-          <div class="num">6</div>
+          <div class="num">7</div>
           <div class="sigla">N</div>
           <div class="nome">Nitrogênio</div>
       </div>
@@ -933,10 +934,13 @@
       <div class="nome">Laurêncio</div>
   </div>
 </a>
-</div>
-<h2>Legenda</h2>
-<div class="legenda">
 
+</div>
+
+
+<div class="legenda"><h2>Legenda</h2></div>
+
+<div class="legenda">
 <div class="elemento2">
   <div class="num2">Nº atômico</div>
   <div class="sigla2">Símbolo</div>
@@ -1917,5 +1921,26 @@
 </table>
 </div>
 </main>
+<script>
+  //Get the button:
+mybutton = document.getElementById("inicio");
+
+// When the user scrolls down 20px from the top of the document, show the button
+window.onscroll = function() {scrollFunction()};
+
+function scrollFunction() {
+  if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+    mybutton.style.display = "block";
+  } else {
+    mybutton.style.display = "none";
+  }
+}
+
+// When the user clicks on the button, scroll to the top of the document
+function topFunction() {
+  document.body.scrollTop = 0; // For Safari
+  document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
+}
+</script>
 </body>
 </html>
