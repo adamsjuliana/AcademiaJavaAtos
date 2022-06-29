@@ -1,0 +1,80 @@
+<!DOCTYPE HTML>
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:th="https://www.thymeleaf.org/%22%3E">
+<head>
+<title>JUsers - Visualizar</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<style>
+	*{
+		margin:0;
+		padding: 0;
+        text-decoration: none;
+}
+	body{
+		height: 100vh;
+        width: 100vw;
+		display:flex;
+		justify-content:center;
+  	  	align-items: center;
+  	  	flex-direction: column;
+}
+    .container{
+        border: 1px solid black;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 10px;
+        border-radius: 7px;
+                box-shadow: 2px 2px 20px rgba(0,0,0,0.2);
+    }
+    a{
+        padding: 10px;
+        color: #555;
+    }
+
+    table{
+    margin: 30px auto;
+    border-collapse: collapse;
+    min-width: 600px;
+}
+
+table thead{
+    text-transform: uppercase;
+}
+table tr{
+    border: 1px solid #ddd;
+}
+table tbody tr:hover{
+    background: #f1f1f1;
+    cursor: pointer;
+}
+table th,
+table td{
+    padding: 8px 8px;
+}
+</style>
+</head>
+<body>
+    <div class="container">
+	<h1>Visualizar</h1>
+	<table>
+		<thead>
+			<tr>
+				<th>E-mail</th>
+				<th>Role</th>
+
+			</tr>
+		</thead>
+		<tbody>
+			<tr th:each="u : ${usuario}">
+				<td th:text="${u.email}"></td>
+				<td th:text="${u.role}"></td>
+
+			</tr>
+		</tbody>
+	</table>
+</div>
+<a href="/">Voltar</a>
+
+</body>
+</html>

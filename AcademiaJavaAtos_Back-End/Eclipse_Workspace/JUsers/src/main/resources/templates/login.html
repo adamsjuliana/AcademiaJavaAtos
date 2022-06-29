@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+
+<html lang="pt-br" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org"
+      xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>JUsers - Login</title>
+        <style>
+*{
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+}
+body{
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.container{
+border: 1px solid #555;
+border-radius: 10px;
+padding: 1rem 2rem;
+}
+label{
+    display: inline-block;
+    width: 50px;
+}
+.campo{
+    width: 250px;
+    margin: 3px 0;
+}
+h1{
+    padding: 1rem 0;
+}
+.aviso{
+    text-align: right;
+    color: rgb(255, 0, 0);
+    font-size: small;
+}
+.btn{
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+.botao{
+                margin: 8px;
+                padding: 6px 15px;
+                background: white;
+                border: 1px solid #000;
+                border-radius: 5px;
+                text-align: center;
+                height: 30px;
+            }
+.botao:hover{
+   background-color: #f1f1f1;
+    }
+.pi{
+    margin-top: 10px;
+    width: 100%;
+    text-align: center;
+}
+.pi a{
+    color:#000;
+}
+
+        </style>
+    </head>
+    <body>
+    <div class="container">
+        <h1>Login</h1>
+            <form th:action="@{/login}" method="post">
+                <div><label>E-mail: </label><input class="campo" type="text" name="username"/></div>
+                <div><label>Senha: </label><input class="campo" type="password" name="password"/></div>
+                <div class="aviso" th:if="${param.error}">
+                    Usuário ou senha inválidos.
+                </div>
+                <div class="aviso" th:if="${param.logout}">
+                    Você fez logout.
+                </div>
+                <div class="btn"><input class="botao" type="submit" value="Entrar"/></div>
+            </form>
+        <div class="pi"><a href="/">Voltar para a página inicial</a></div>
+        </div>
+        
+    </body>
+</html>
