@@ -31,13 +31,13 @@ public class WebSecurityConfig {
 		.anyRequest().authenticated()
 		.and()
 		.formLogin()
-			.loginPage("/jusers/login").permitAll() //Configura o acesso a view de login e da acesso irrestrito a ela
+			.loginPage("/jusers/login")
+			.permitAll() //Configura o acesso a view de login e da acesso irrestrito a ela
 			.and()
 		.logout()
 			.permitAll();
 		return http.build();
 	}
-
 	@Bean //Bean que cria um usuário em memória para acessar a aplicação via autenticação
 	public InMemoryUserDetailsManager userDetailsService() {
 		List<Usuario> usuarios = usuarioRepository.findAll();
