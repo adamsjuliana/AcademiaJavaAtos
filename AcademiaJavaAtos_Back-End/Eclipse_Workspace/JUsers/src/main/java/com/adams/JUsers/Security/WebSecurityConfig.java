@@ -32,6 +32,7 @@ public class WebSecurityConfig {
 		.and()
 		.formLogin()
 			.loginPage("/jusers/login")
+			.defaultSuccessUrl("/jusers", true)
 			.permitAll() //Configura o acesso a view de login e da acesso irrestrito a ela
 			.and()
 		.logout()
