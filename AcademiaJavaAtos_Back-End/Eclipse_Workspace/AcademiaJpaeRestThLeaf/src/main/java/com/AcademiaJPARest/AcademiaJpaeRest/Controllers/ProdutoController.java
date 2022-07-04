@@ -36,7 +36,6 @@ public class ProdutoController {
 		List<Produto> listaProdutos = produtoRepository.findAll();
 		model.addAttribute("produtos", listaProdutos);
 		return "listarProdutos";
-		
 	}
 	@GetMapping("/{id}")
 	Produto getproduto(@PathVariable Long id) {
@@ -50,7 +49,7 @@ public class ProdutoController {
 		model.addAttribute("produtos", listaProdutos);
 		return "listarProdutos";
 	}
-	
+
 	@PostMapping("/excluir/{id}")
 	@ResponseStatus(HttpStatus.OK)
 	public String deleteprodutopost(@PathVariable Long id, Model model) {
@@ -59,7 +58,7 @@ public class ProdutoController {
 		model.addAttribute("produtos", listaProdutos);
 		return "listarProdutos";
 	}
-
+	
 	@GetMapping ("/alterar/{id}")
 	public String altProdutos(@PathVariable Long id, Model model) {
 		Produto p = produtoRepository.findById(id).get();

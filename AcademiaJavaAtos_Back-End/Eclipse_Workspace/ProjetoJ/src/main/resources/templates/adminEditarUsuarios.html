@@ -1,0 +1,31 @@
+<!DOCTYPE HTML>
+<html xmlns:th="https://www.thymeleaf.org">
+<head> 
+    <title>JUsers - Alterar</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+
+<body>
+<div class="container">
+	<h1>Alterar</h1>
+    <form action="#" th:action="@{/usuario/update}" th:object="${usuario}" method="post">
+            <p><label>Id: </label><input type="text" th:field="*{id}" /></p>
+        <p><label>Nome: </label><input type="text" th:field="*{nome}" /></p>
+		<p><label>E-mail: </label><input type="text" th:field="*{email}" /></p>
+		<p><label>Cidade: </label><input type="text" th:field="*{cidade}" /></p>
+		 <p><label for="estado" class="inputLabel ">Estado: </label> <select th:field="*{estado}" class="inputEstado" id="estado">
+                            												<option value="Rio Grande do Sul" selected>RS</option>
+                            												<option value="São Paulo">SP</option>
+                            												<option value="Rio de Janeiro">RJ</option>
+                          											</select></p>
+		<p><label>senha: </label><input type="text" th:field="*{senha}" /></p>
+		<p><input type="radio" id="user" value="USER" th:field="*{role}">
+            <label for="user">USER</label>
+            <input type="radio" id="admin" value="ADMIN" th:field="*{role}">
+            <label for="admin">ADMIN</label></p>
+        <p><input type="submit" value="Cadastrar" /> <input type="reset" value="Reset" /></p>
+    </form>
+  
+</div>
+</body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE HTML>
+<html xmlns:th="https://www.thymeleaf.org"
+xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+<head> 
+    <title>Formulário de Cadastro de Produtos</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+
+<header>
+
+	<div sec:authorize="isAuthenticated()"><h1>Bem-vindo(a), <span sec:authentication="name"></span>!</h1></div>
+	<div sec:authorize="!isAuthenticated()"><h1>Bem-vindo(a)!</h1></div>
+
+<nav>
+<ul>
+<li>Eletroposto</li>
+<li><a href="/">Página Inicial</a></li>
+<li><a href="/sobre">Sobre</a></li>
+<li sec:authorize="hasRole('ROLE_USER')"><a href="#">Meus Agendamentos</a></li>
+<li sec:authorize="hasRole('ROLE_ADMIN')"><a href="/usuario/all">Lista Usuários</a></li>
+<li sec:authorize="hasRole('ROLE_ADMIN')"><a href="/agendamento/all">Lista Agendamentos</a></li>
+<li sec:authorize="hasRole('ROLE_USER')"><a href="/agendamento/add">Agendar</a></li>
+<li sec:authorize="!isAuthenticated()"><a href="/usuario/add">Cadastrar</a></li>
+<li sec:authorize="!isAuthenticated()"><a href="/login">Logar</a></li>
+<li sec:authorize="isAuthenticated()"><a onclick="document.querySelector('#formLogout').submit()" href="#">Deslogar</a></li>
+</ul>
+</nav>
+<form id="formLogout" th:action="@{/logout}" method="post"></form>
+</header>
+
+<div sec:authorize="isAuthenticated()"> Logged user: <span sec:authentication="name"></span>
+<div sec:authorize="hasRole('ROLE_ADMIN')">Role: Admin</div>
+<div sec:authorize="hasRole('ROLE_USER')">Role: User</div>		
+	
+<div class="credit">Juliana Pienis Adams © 2022</div>    
+
+    	
+        
+
+</div>
+</body>
+</html>
