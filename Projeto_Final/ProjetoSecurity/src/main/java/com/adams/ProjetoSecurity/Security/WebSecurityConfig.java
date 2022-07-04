@@ -1,4 +1,4 @@
-package com.adams.ProjetoJ.Security;
+package com.adams.ProjetoSecurity.Security;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -17,7 +17,6 @@ import com.adams.ProjetoJ.Models.Usuario;
 import com.adams.ProjetoJ.Repositories.UsuarioRepository;
 
 
-
 @Configuration
 @EnableWebSecurity
 public class WebSecurityConfig {
@@ -28,7 +27,7 @@ public class WebSecurityConfig {
 	@Bean //Bean que é responsável pela liberação de acesso ou não a uma determinada view.
 	protected SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
 		http.authorizeRequests()
-		.antMatchers("/", "/usuario/add", "/sobre").permitAll()
+		.antMatchers("/", "/usuario/add", "sobre").permitAll()
 		//.antMatchers("/jusers/up", "/jusers/add").hasAuthority("ROLE_ADMIN")
 		.anyRequest().authenticated()
 		.and()
