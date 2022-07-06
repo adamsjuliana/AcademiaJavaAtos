@@ -10,7 +10,6 @@
         <div class="formul">
 	<h1>Cadastrar Produtos</h1>
     <form action="#" th:action="@{/agendamento/add}" th:object="${agendamento}" method="post">
-    	<p><label>usuario: </label><input type="text" th:field="*{usuario}" /></p>
         <p><label>Dia: </label><input type="date" th:field="*{dia}" /></p>
 		<p><label>Hora: </label><input type="time" th:field="*{hora}" /></p>
 	

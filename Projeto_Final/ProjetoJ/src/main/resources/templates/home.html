@@ -17,7 +17,7 @@ xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
 <li>Eletroposto</li>
 <li><a href="/">Página Inicial</a></li>
 <li><a href="/sobre">Sobre</a></li>
-<li sec:authorize="hasRole('ROLE_USER')"><a href="/agendamento/myall">Meus Agendamentos</a></li>
+<li sec:authorize="hasRole('ROLE_USER')"><a href="/agendamento/alluser">Meus Agendamentos</a></li>
 <li sec:authorize="hasRole('ROLE_ADMIN')"><a href="/usuario/all">Lista Usuários</a></li>
 <li sec:authorize="hasRole('ROLE_ADMIN')"><a href="/agendamento/all">Lista Agendamentos</a></li>
 <li sec:authorize="hasRole('ROLE_USER')"><a href="/agendamento/add">Agendar</a></li>

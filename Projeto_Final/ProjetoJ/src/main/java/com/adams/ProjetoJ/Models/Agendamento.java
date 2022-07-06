@@ -1,6 +1,8 @@
 package com.adams.ProjetoJ.Models;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -11,10 +13,12 @@ public class Agendamento {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
+	@Column(nullable = false)
 	private String dia;
+	@Column(nullable = false)
 	private String hora;
 	
-	@ManyToOne//cria um relacionamento muitos para um (conta x filial)
+	@ManyToOne(fetch = FetchType.LAZY)
 	private Usuario usuario;
 	
 	public Agendamento() {
