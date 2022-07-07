@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.1.3/css/bootstrap.min.css"
+        integrity="sha512-GQGU0fMMi238uA+a/bdWJfpUGKUkBdgfFdgBm72SUQ6BeyWjoY/ton0tEjH+OSH9iP4Dfh+7HM0I9f5eR0L/4w=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="/Aula6.Desafio/style.css">
+    <script defer src="/Aula6.Desafio/main.js"></script>
+    <title>Desafio Formulário</title>
+</head>
+
+<body>
+    <div class="container text-center mb-5 mt-5">
+        <h1>Formulário Academia Atos-UFN</h1>
+    </div>
+<form>
+    <div class="container">
+        <h4>Informações Pessoais</h4>
+        <div class="row">
+            <div class="col">
+                <label for="nome">Nome<span class="text-danger">*</span></label><input type="text" id="nome" class="form-control"
+                    placeholder="Nome" aria-label="Nome">
+            </div>
+            <div class="col">
+                <label for="sobrenome">Sobrenome<span class="text-danger">*</span></label><input type="text" id="sobrenome" class="form-control"
+                    placeholder="Sobrenome" aria-label="Sobrenome">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <label for="e-mail">E-mail<span class="text-danger">*</span></label><input type="email" id="e-mail" class="form-control"
+                    placeholder="E-mail" aria-label="E-mail">
+            </div>
+            <div class="col">
+                <label for="login">Login</label><input type="text" id="login" class="form-control" placeholder=""
+                    aria-label="Last name" disabled>
+            </div>
+            <div class="col">
+                <label for="senha">Senha<span class="text-danger">*</span></label><input type="password" id="senha" class="form-control"
+                    placeholder="Senha" aria-label="Senha">
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-2">
+                <label for="cep">CEP</label><input type="email" id="cep" class="form-control" placeholder="CEP"
+                    aria-label="CEP">
+            </div>
+            <div class="col">
+                <label for="endereco">Endereço</label><input type="text" id="endereco" class="form-control"
+                    placeholder="Endereço" aria-label="Endereço">
+            </div>
+            <div class="col">
+                <label for="complemento">Complemento</label><input type=text" id="complemento" class="form-control"
+                    placeholder="Complemento" aria-label="Complemento">
+            </div>
+        </div>
+    </div>
+
+    <div class="container mt-3">
+        <h4>Informações Pessoais</h4>
+        <div class="row">
+            <div class="col-sm-5">
+                <label for="Github">Github<span class="text-danger">*</span></label>
+                <div class="input-group">
+                  <div class="input-group-text">github.com/</div>
+                  <input type="text" class="form-control" id="Github" placeholder="username">
+                </div>
+              </div>
+              <div class="col-sm-3">
+                <label for="academia">Academia<span class="text-danger">*</span></label>
+                <select class="form-select" id="academia">
+                  <option selected>Escolha...</option>
+                  <option value="java">Java</option>
+                  <option value="dotnet">.NET</option>
+                </select>
+                </div>
+                <div class="col-sm-4">
+                    <label for="professor">Professor<span class="text-danger">*</span></label>
+                    <select class="form-select" id="professor">
+                      <option selected>Escolha...</option>
+                      <option value="1">Lucas Alberto Schlestein</option>
+                      <option value="2">Heryson Figueiredo</option>
+                      <option value="3">Deivison Morim Pasa</option>
+                      <option value="3">Sylvio André Garcia</option>
+                    </select>
+                    </div>
+            </div>
+    </div>
+        <div class="container mb-4 mt-3">
+            <h4>Termos Legais</h4>
+            <div class="container-overflow-scroll">
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Saepe eius sit animi recusandae, cumque magnam asperiores ex, temporibus molestias illo inventore dolor necessitatibus vel voluptatem laudantium quisquam, nesciunt tempore officiis.
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aspernatur, quos? Numquam, neque earum incidunt alias eaque quam sequi, eos ad facere qui amet. Nostrum harum deserunt ut. Vitae, quo totam?
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius consequuntur ducimus quae reiciendis amet veniam, eaque eveniet modi necessitatibus fuga exercitationem cupiditate nisi. Odio dignissimos velit cum sunt ducimus vitae?
+                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quod necessitatibus consectetur perferendis nobis ratione soluta ducimus cumque, sed illo nihil quas repellendus autem eligendi aut, cupiditate praesentium, beatae nisi asperiores?
+                Lorem, ipsum dolor sit amet consectetur adipisicing elit. Qui voluptate, nemo quibusdam provident voluptas sint saepe! Minima, maxime id. Repellendus saepe enim nam deserunt dignissimos explicabo, illum amet! Minima, accusamus?
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Blanditiis totam error eius delectus possimus voluptate laboriosam! Dolorem qui odit ex ullam quos pariatur aliquid voluptas? Corrupti aperiam distinctio perspiciatis voluptatem.</p>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Saepe eius sit animi recusandae, cumque magnam asperiores ex, temporibus molestias illo inventore dolor necessitatibus vel voluptatem laudantium quisquam, nesciunt tempore officiis.
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aspernatur, quos? Numquam, neque earum incidunt alias eaque quam sequi, eos ad facere qui amet. Nostrum harum deserunt ut. Vitae, quo totam?
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius consequuntur ducimus quae reiciendis amet veniam, eaque eveniet modi necessitatibus fuga exercitationem cupiditate nisi. Odio dignissimos velit cum sunt ducimus vitae?
+                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quod necessitatibus consectetur perferendis nobis ratione soluta ducimus cumque, sed illo nihil quas repellendus autem eligendi aut, cupiditate praesentium, beatae nisi asperiores?
+                Lorem, ipsum dolor sit amet consectetur adipisicing elit. Qui voluptate, nemo quibusdam provident voluptas sint saepe! Minima, maxime id. Repellendus saepe enim nam deserunt dignissimos explicabo, illum amet! Minima, accusamus?
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Blanditiis totam error eius delectus possimus voluptate laboriosam! Dolorem qui odit ex ullam quos pariatur aliquid voluptas? Corrupti aperiam distinctio perspiciatis voluptatem.</p>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Saepe eius sit animi recusandae, cumque magnam asperiores ex, temporibus molestias illo inventore dolor necessitatibus vel voluptatem laudantium quisquam, nesciunt tempore officiis.
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aspernatur, quos? Numquam, neque earum incidunt alias eaque quam sequi, eos ad facere qui amet. Nostrum harum deserunt ut. Vitae, quo totam?
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius consequuntur ducimus quae reiciendis amet veniam, eaque eveniet modi necessitatibus fuga exercitationem cupiditate nisi. Odio dignissimos velit cum sunt ducimus vitae?
+                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quod necessitatibus consectetur perferendis nobis ratione soluta ducimus cumque, sed illo nihil quas repellendus autem eligendi aut, cupiditate praesentium, beatae nisi asperiores?
+                Lorem, ipsum dolor sit amet consectetur adipisicing elit. Qui voluptate, nemo quibusdam provident voluptas sint saepe! Minima, maxime id. Repellendus saepe enim nam deserunt dignissimos explicabo, illum amet! Minima, accusamus?
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Blanditiis totam error eius delectus possimus voluptate laboriosam! Dolorem qui odit ex ullam quos pariatur aliquid voluptas? Corrupti aperiam distinctio perspiciatis voluptatem.</p>       
+            </div>
+            <div class="form-check mt-2">
+                <input class="form-check-input" type="checkbox" value="" id="termoslegais">
+                <label class="form-check-label" for="termoslegais">Eu li e concordo com os termos acima.</label>
+              </div>
+        </div>
+        <div class="container">
+            <div class="form-check">
+                <input class="form-check-input" type="radio" name="info-email" id="quero-info" checked>
+                <label class="form-check-label" for="quero-info">Quero receber informações e novidades por e-mail</label>
+              </div>
+              <div class="form-check">
+                <input class="form-check-input" type="radio" name="info-email" id="n-quero-info">
+                <label class="form-check-label" for="n-quero-info">Não quero receber informações e novidades por e-mail</label>
+              </div>
+
+    </div>
+        <div class="d-grid gap-2 col-6 mx-auto mt-4">
+                <button type="submit" class="btn btn-primary">Submit</button>
+        </div>
+    </form>
+        <div class="info-enviadas mb-4">
+            <div class="container bg-secondary mt-4 text-white">
+                <h4>Informações enviadas</h4>
+            </div>
+            <div class="container">
+            <div class="col border-bottom border-secondary fs-5">Nome: <span id="nome-enviado"></span></div>
+            <div class="col border-bottom border-secondary fs-5">Sobrenome: <span id="sobrenome-enviado"></span></div>
+            <div class="col border-bottom border-secondary fs-5">E-mail: <span id="email-enviado"></span></div>
+            <div class="col border-bottom border-secondary fs-5">Login: <span id="login-enviado"></span></div>
+            <div class="col border-bottom border-secondary fs-5">Senha: <span id="senha-enviado"></span></div>
+            <div class="col border-bottom border-secondary fs-5">CEP: <span id="CEP-enviado"></span></div>
+            <div class="col border-bottom border-secondary fs-5">Endereço: <span id="endereco-enviado"></span></div>
+            <div class="col border-bottom border-secondary fs-5">Complemento: <span id="complemento-enviado"></span></div>
+            <div class="col border-bottom border-secondary fs-5">Bairro: <span id="bairro-enviado"></span></div>
+            <div class="col border-bottom border-secondary fs-5">Cidade: <span id="cidade-enviado"></span></div>
+            <div class="col border-bottom border-secondary fs-5">Estado: <span id="estado-enviado"></span></div>
+            <div class="col border-bottom border-secondary fs-5">GitHub: <span id="github-enviado"></span></div>
+            <div class="col border-bottom border-secondary fs-5">Academia: <span id="academia-enviado"></span></div>
+            <div class="col border-bottom border-secondary fs-5">Professor: <span id="professor-enviado"></span></div>
+            <div class="col border-bottom border-secondary fs-5">Termos legais: <span id="termoslegais-enviado"></span></div>
+            <div class="col border-bottom border-secondary fs-5">Informativo: <span id="info-enviado"></span></div>
+            </div>
+        </div>
+</body>
+
+</html>

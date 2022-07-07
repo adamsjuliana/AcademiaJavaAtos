@@ -17,15 +17,11 @@ import com.adams.ProjetoJ.Models.Usuario;
 import com.adams.ProjetoJ.Repositories.UsuarioRepository;
 
 @Controller
-@RequestMapping("/usuario")
+@RequestMapping("/")
 public class UsuarioController {
 	@Autowired
 	private UsuarioRepository usuarioRepository;
-	
-	@GetMapping("/")
-	public String pagHome() {
-		return "home";
-	}
+
 	@GetMapping("/add")
 	public String pagCadastroUsuario(Model model) {
 		model.addAttribute("usuario", new Usuario());
