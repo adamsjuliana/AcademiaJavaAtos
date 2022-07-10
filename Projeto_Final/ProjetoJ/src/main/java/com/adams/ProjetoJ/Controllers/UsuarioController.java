@@ -39,37 +39,4 @@ public class UsuarioController {
 		usuarioRepository.save(u);
 		return "home";
 	}
-	@GetMapping("/all")
-    public String listarUsuarios(@ModelAttribute Usuario usuario, Model model) {
-        Iterable<Usuario> listaUsuario = usuarioRepository.findAll();
-        model.addAttribute("usuario", listaUsuario);
-        return "adminListaUsuarios";
-    }
-	@GetMapping("/delete/{id}")
-    public String delUsuario(@PathVariable Integer id, Model model) {
-    	usuarioRepository.deleteById(id);
-        Iterable<Usuario> listaUsuario = usuarioRepository.findAll();
-        model.addAttribute("usuario", listaUsuario);
-    	return "adminListaUsuarios";
-    }
-    @GetMapping("/update/{id}")
-    public String altUser(@PathVariable Integer id, Model model) {
-    	Usuario u = usuarioRepository.findById(id).get();
-    	model.addAttribute("usuario", u);
-    	return "adminEditarUsuarios";
-    }
-    @PostMapping("/update")
-    public String updateUser(@ModelAttribute Usuario novoUsuario, Model model) {
-    	Usuario u = usuarioRepository.findById(novoUsuario.getId()).get();
-    	u.setId(novoUsuario.getId());
-    	u.setNome(novoUsuario.getNome());
-    	u.setEmail(novoUsuario.getEmail());
-    	u.setCidade(novoUsuario.getCidade());
-    	u.setEstado(novoUsuario.getEstado());
-    	u.setRole(novoUsuario.getRole());
-    	usuarioRepository.save(u);
-        Iterable<Usuario> listaUsuario = usuarioRepository.findAll();
-        model.addAttribute("usuario", listaUsuario);
-    	return "adminListaUsuarios";
-    }
 }

@@ -2,7 +2,6 @@
 function exibirAlerta() {
     alert('O botão foi pressionado!')
 }
-
 document.getElementById('btn-alerta').onclick = exibirAlerta
 
 

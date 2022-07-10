@@ -8,21 +8,18 @@
 </head>
 <body>
     <div class="container">
+	<!--  <h1	th:text="*{a.usuario.nome}"></h1>-->
 	<table>
 		<thead>
 			<tr>
-				<th>Usuário</th>
 				<th>Dia</th>
 				<th>Hora</th>
-				<th>Excluir</th>
 			</tr>
 		</thead>
 		<tbody>
 			<tr th:each="a : ${agendamento}">
-				<td th:text="${a.usuario.nome}"></td>
 				<td th:text="${a.dia}"></td>
 				<td th:text="${a.hora}"></td>
-				<td><a th:href="@{/admin/del/{id} (id=${a.id})}"><i class="fa-solid fa-trash-can"></i></a></td>
 			</tr>
 		</tbody>
 	</table>

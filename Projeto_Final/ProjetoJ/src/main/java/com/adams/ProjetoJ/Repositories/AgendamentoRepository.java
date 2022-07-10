@@ -10,10 +10,11 @@ import org.springframework.data.repository.query.Param;
 import org.springframework.security.core.userdetails.User;
 
 import com.adams.ProjetoJ.Models.Agendamento;
+import com.adams.ProjetoJ.Models.Usuario;
 
 public interface AgendamentoRepository extends JpaRepository<Agendamento, Integer> {
 	
-		//	@Query("Select p from agendamento p where usuario_id=:id")
+	//	@Query("Select p from agendamento p where usuario_id=:id")
 	//User getUserById(@Param("Id") String id);
 	
 	//@Query(value="select * from agendamento where dia=:dia and hora=:hora", nativeQuery = true)
@@ -28,6 +29,7 @@ public interface AgendamentoRepository extends JpaRepository<Agendamento, Intege
 
 	@Query("select p from Agendamento p join p.usuario u where u.id = :id")
 	List<Agendamento> findByIDCLIENTE(@Param("id") Integer id);
-	
-	
+
+	@Query("select p from Agendamento p where p.dia = :dia order by p.hora")
+	List<Agendamento> findByToday(@Param("dia") String dia);
 }

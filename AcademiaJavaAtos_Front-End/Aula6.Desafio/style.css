@@ -8,3 +8,10 @@
     text-align: justify;
     text-indent: 3rem;
 }
+.erro{
+    font-size: 12px;
+    color: red;
+}
+.inputValido .erro{
+    display: none;
+}

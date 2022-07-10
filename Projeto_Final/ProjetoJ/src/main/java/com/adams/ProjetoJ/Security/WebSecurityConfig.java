@@ -34,8 +34,8 @@ public class WebSecurityConfig<protect> {
 	@Bean //Bean que é responsável pela liberação de acesso ou não a uma determinada view.
 	protected SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
 		http.authorizeRequests()
-		.antMatchers("/", "/usuario/add", "/sobre").permitAll()
-		//.antMatchers("/jusers/up", "/jusers/add").hasAuthority("ROLE_ADMIN")
+		.antMatchers("/", "/add", "/sobre").permitAll()
+		.antMatchers("/admin").hasAuthority("ROLE_ADMIN")
 		.anyRequest().authenticated()
 		.and()
 		.formLogin()
@@ -58,10 +58,9 @@ public class WebSecurityConfig<protect> {
 			//withDetaultPasswordEncoder não criptografa a senha. Só utilizado para fins de estudo.
 			userDetailsList.add(User
 					.withDefaultPasswordEncoder()
-					.username(usuarioTemp.getEmail().toString())
-					.password(usuarioTemp.getSenha().toString())
-					.roles(usuarioTemp.getRole().toString()).build());
+					.username(usuarioTemp.getEmail())
+					.password(usuarioTemp.getSenha())
+					.roles(usuarioTemp.getRole()).build());
 		}
 		return new InMemoryUserDetailsManager(userDetailsList);
-	
 	}}

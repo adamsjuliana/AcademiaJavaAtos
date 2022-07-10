@@ -8,7 +8,7 @@
 <body>
 <div class="container">
 	<h1>Alterar</h1>
-    <form action="#" th:action="@{/usuario/update}" th:object="${usuario}" method="post">
+    <form action="#" th:action="@{/admin/upuser}" th:object="${usuario}" method="post">
             <p><label>Id: </label><input type="text" th:field="*{id}" /></p>
         <p><label>Nome: </label><input type="text" th:field="*{nome}" /></p>
 		<p><label>E-mail: </label><input type="text" th:field="*{email}" /></p>

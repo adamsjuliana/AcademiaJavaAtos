@@ -29,12 +29,12 @@ public class AgendamentoController {
 	private UsuarioRepository usuarioRepository;
 	
 	@GetMapping("/add")
-	public String pagCadastroUsuario(Model model) {
+	public String pagAddAgendamento(Model model) {
 		model.addAttribute("agendamento", new Agendamento());
 		return "agendar";
 	}
 	@PostMapping("/add")
-	public String addUsuario(@ModelAttribute Usuario usuario, @RequestParam String dia, @RequestParam String hora, Principal principal, Model model) {
+	public String addAgendamento(@ModelAttribute Usuario usuario, @RequestParam String dia, @RequestParam String hora, Principal principal, Model model) {
 		Agendamento a = new Agendamento();
     	Usuario u = usuarioRepository.findUsuarioLogado(principal.getName());
 			a.setUsuario(u);
@@ -42,41 +42,6 @@ public class AgendamentoController {
 			a.setHora(hora);
 		agendamentoRepository.save(a);
 		return "home";
-	} 	
-		@GetMapping("/alluser")
-		public String listarAgendamentosUSER(Model model, Principal principal) {
-       List<Agendamento> listaAgendamento = agendamentoRepository.findAgendamentoByUsuarioUSER(principal.getName());
-        model.addAttribute("agendamento", listaAgendamento);
-        return "meusAgendamentos";
-		}	
-		@GetMapping("/deleteUSER/{id}")
-	    public String delAgendamentoUSER(@PathVariable Integer id, Principal principal, Model model) {
-	    agendamentoRepository.deleteById(id);
-	    List<Agendamento> listaAgendamento = agendamentoRepository.findAgendamentoByUsuarioUSER(principal.getName());
-	    model.addAttribute("agendamento", listaAgendamento);
-	    return "meusAgendamentos";
-	    }
-				/** ADMINISTRADOR **/
-	@GetMapping("/all")
-    public String listarAgendamentosADMIN(@ModelAttribute Agendamento agendamento, Model model) {
-        List<Agendamento> listaAgendamento = agendamentoRepository.findAll();
-        model.addAttribute("agendamento", listaAgendamento);
-        return "adminListaAgendamentos";
-    }
+	}
 
-	@GetMapping("/delete/{id}")
-    public String delAgendamentoADMIN(@PathVariable Integer id, Model model) {
-    	agendamentoRepository.deleteById(id);
-        List<Agendamento> listaAgendamento = agendamentoRepository.findAll();
-        model.addAttribute("agendamento", listaAgendamento);
-    	return "adminListaAgendamentos";
-    }			/** ADMINISTRADOR **/
-	
-	@GetMapping("/listaagendamentoporcliente/{id}")
-    public String listaAgendamentoPorUSER(@PathVariable Integer id, Principal principal, Model model) {
-    List<Agendamento> listaAgendamento = agendamentoRepository.findByIDCLIENTE(id);
-    model.addAttribute("agendamento", listaAgendamento);
-    System.out.println(listaAgendamento);
-    return "listarAgendamentoPorCliente";
-    }
 	}

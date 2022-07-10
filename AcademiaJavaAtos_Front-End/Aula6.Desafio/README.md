@@ -1,6 +1,6 @@
 # Desafio Front-End-03 06-07:
 
-## Criar um formulário com os seguintes campos:
+## Criar um formulário com os seguintes campos: 
 - Nome
 - Sobrenome
 - E-mail
@@ -17,7 +17,6 @@
 - Professor (lista com os professores)
 - Aceite de termos (utilizar textarea para exibir os termos)
 - Opção de receber ou não receber informativos
-
 
 ## Regras do formulário:
 ### Campos de preenchimento obrigatório:

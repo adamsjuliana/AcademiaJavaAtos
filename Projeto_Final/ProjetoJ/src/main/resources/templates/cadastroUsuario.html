@@ -9,7 +9,7 @@
     <div class="conteudo">
         <div class="formul">
 	<h1>Cadastrar Produtos</h1>
-    <form action="#" th:action="@{/usuario/add}" th:object="${usuario}" method="post">
+    <form action="#" th:action="@{/add}" th:object="${usuario}" method="post">
         <p><label>Nome: </label><input type="text" th:field="*{nome}" /></p>
 		<p><label>E-mail: </label><input type="text" th:field="*{email}" /></p>
 		<p><label>Cidade: </label><input type="text" th:field="*{cidade}" /></p>
