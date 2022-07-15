@@ -46,7 +46,9 @@
                     <th>Nome</th>
                     <th>Email</th>
                     <th>Username</th>
-                    <th>Editar</th>
+                    <th>Autorizações</th>
+                    <th>Autorizações</th>
+                    <th>Perfil</th>
                     <th>Apagar</th>
                 </tr>
             </thead>
@@ -59,6 +61,16 @@
                 	<td th:text="${u.nome}"></td>
                 	<td th:text="${u.email}"></td>
                 	<td th:text="${u.username}"></td>
+				<td>
+					<th:block th:each="pp : ${u.papeis}">
+						<span th:text="${pp.papel}"></span><br/>
+					</th:block>							
+				</td>
+
+                	<td>
+                	<a th:href="@{/usuario/admin/editPapel/{id} (id=${u.id})}">
+                	Editar</a>
+                	</td>
                 	<td>
                 		<a th:href="@{/usuario/admin/edit/{id} (id=${u.id})}">
                 		Editar</a>

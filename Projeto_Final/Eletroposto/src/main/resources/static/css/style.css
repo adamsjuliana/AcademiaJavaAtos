@@ -330,6 +330,7 @@ transform: scale(1.5);
     border-collapse: collapse;
     text-align: center;
     width: 500px;
+    font-size: 14px;
 }
 .agendamentos thead{
     text-transform: uppercase;
@@ -340,16 +341,13 @@ transform: scale(1.5);
 .agendamentos th,
 .agendamentos td{
     border-bottom: .7rem solid var(--cor-bg);
-    padding: 10px 50px;
+    padding: 10px 20px;
 }
 .agendamentos a{
-    padding: .3rem 2rem;
-    border: 1px solid var(--cor-rosa);
-    border-radius: 50em;
-    color: var(--cor-fonte);
+    color: var(--cor-azul);
 }
 .agendamentos a:hover{
-background: var(--cor-rosa);
+color: var(--cor-fonte);
 }
 
 /***********      TABELA      ***********/

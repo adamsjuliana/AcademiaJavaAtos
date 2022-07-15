@@ -44,6 +44,9 @@
             <span class="aviso" th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></span>
             <label for="username">Username: </label><input class="campo" id="username" type="text" th:field="*{username}"/>
             <span class="aviso" th:if="${#fields.hasErrors('username')}" th:errors="*{username}"></span>
+            
+            <span class="aviso" th:if="${usernameExiste}" th:text="${usernameExiste}"></span>
+            
             <label for="password">Senha: </label><input class="campo" id="password" type="password" th:field="*{password}"/>
              <span class="aviso" th:if="${#fields.hasErrors('password')}" th:errors="*{password}"></span>
             <div class="InputBtns"><input class="botao" type="submit" value="Entrar"/>
