@@ -30,6 +30,10 @@ public class MainController {
 	public String pagInicial() {
 		   return "home";
 		   }
+	@GetMapping("/no")
+	public String acessoNegado() {
+		   return "acesso-negado";
+		   }
 	@GetMapping("/sobre")
 	public String sobre() {
 		   return "sobre";

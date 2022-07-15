@@ -29,10 +29,9 @@ public class Usuario {
 	@Size(min = 5, message ="O username precisa ter no mínimo 5 caracteres.")
 	private String username;
 	@NotEmpty(message="Campo obrigatório.")
-	@Size(min = 6, max= 12, message ="A senha precisa ter entre 6 e 12 caracteres.")
 	private String password;
 	
-	private Boolean enabled;
+	private boolean ativo;
 	
 	@ManyToMany(fetch = FetchType.EAGER)
 	@JoinTable(name="usuario_papel", joinColumns = @JoinColumn(name = "usuario_id"), inverseJoinColumns = @JoinColumn(name ="papel_id"))
@@ -87,15 +86,13 @@ public class Usuario {
 		this.password = password;
 	}
 
-	public Boolean getEnabled() {
-		return enabled;
+	public boolean isAtivo() {
+		return ativo;
 	}
 
-	public void setEnabled(Boolean enabled) {
-		this.enabled = enabled;
+	public void setAtivo(boolean ativo) {
+		this.ativo = ativo;
 	}
-
-	
 
 	
 	

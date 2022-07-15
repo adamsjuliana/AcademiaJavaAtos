@@ -23,12 +23,12 @@
         <li><a class="item" href="/">Página Inicial</a></li>
         <li><a class="item" href="/sobre">Sobre</a></li>
         <li><a class="item" href="/agendar">Agendar</a></li>
-		<li><a class="item" href="/meus">Meus Agendamentos</a></li>
+		<li><a class="item" href="/agendamento/meus">Meus Agendamentos</a></li>
         <li><a class="item" href="/agendamentos">Agendamentos</a></li>
         <li><a class="item" href="/usuario/admin/all">Usuários</a></li>
     </ul>
     <ul class="ul3">
-        <li><a class="btn" href="/usuario/add">Registrar</a></li>
+        <li sec:authorize="!isAuthenticated()"><a class="btn" href="/usuario/add">Registrar</a></li>
         <li sec:authorize="!isAuthenticated()"><a class="btn lgn" href="/login">Logar</a></li>
         <li sec:authorize="isAuthenticated()"><a class="btn lgn" onclick="document.querySelector('#formLogout').submit()" href="#">Deslogar</a></li>
     </ul>
@@ -66,10 +66,8 @@
     </div>
 </div>
     <h2 class="cred">© Juliana Pienis Adams | Academia Java - ATOS/UFN 2022 | Icones por <a href="https://www.iconfinder.com/">IconFinder</a>.</h2>
-    <h2 class="cred" sec:authorize="isAuthenticated()">Usuário Logado: <span sec:authentication="name"></span> | Modo: Administrador</h2>
+
 </footer>
-
-
 
 <form class="invi" id="formLogout" th:action="@{/logout}" method="post"></form>
 </body>

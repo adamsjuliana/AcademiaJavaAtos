@@ -22,14 +22,14 @@
         <li><a class="item" href="/">Página Inicial</a></li>
         <li><a class="item" href="/sobre">Sobre</a></li>
         <li><a class="item" href="/agendar">Agendar</a></li>
-        <li><a class="item" href="/meus">Meus Agendamentos</a></li>
-        <a class="item" href="/agendamentos">Agendamentos</a></li>
-        <!--<li><a class="item" href="#">Usuários</a></li>-->
+		<li><a class="item" href="/meus">Meus Agendamentos</a></li>
+        <li><a class="item" href="/agendamentos">Agendamentos</a></li>
+        <li><a class="item" href="/usuario/admin/all">Usuários</a></li>
     </ul>
     <ul class="ul3">
-        <li><a class="btn" href="#">Registrar</a></li>
-        <li><a class="btn lgn" href="/login">Logar</a></li>
-        <!--<li><a class="btn lgn" href="#">Deslogar</a></li>-->
+        <li><a class="btn" href="/usuario/add">Registrar</a></li>
+        <li sec:authorize="!isAuthenticated()"><a class="btn lgn" href="/login">Logar</a></li>
+        <li sec:authorize="isAuthenticated()"><a class="btn lgn" onclick="document.querySelector('#formLogout').submit()" href="#">Deslogar</a></li>
     </ul>
 </nav>
 </header>

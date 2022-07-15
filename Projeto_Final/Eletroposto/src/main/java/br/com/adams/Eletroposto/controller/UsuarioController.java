@@ -7,6 +7,7 @@ import java.util.Optional;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -26,6 +27,9 @@ import br.com.adams.Eletroposto.repository.UsuarioRepository;
 @RequestMapping("/usuario")
 public class UsuarioController {
 
+	@Autowired
+	private BCryptPasswordEncoder criptografia;
+	
 	@Autowired
 	private UsuarioRepository usuarioRepository;
 	@Autowired
@@ -54,6 +58,11 @@ public class UsuarioController {
 		papeis.add(papel);
 		usuario.setPapeis(papeis);
 
+		
+		String senhaCript = criptografia.encode(usuario.getPassword());
+		usuario.setPassword(senhaCript);
+		
+		usuario.setAtivo(true);
 		usuarioRepository.save(usuario);
 		attributes.addFlashAttribute("mensagem", "Registro efetuado com sucesso!!");
 		return "redirect:/login";
@@ -128,9 +137,10 @@ public class UsuarioController {
 			if (usuarioOptional.isPresent()) {
 				Usuario usr = usuarioOptional.get();
 				usr.setPapeis(papeis); // relaciona papéis ao usuário
+				usr.setAtivo(usuario.isAtivo());
 				usuarioRepository.save(usr);
-				attributes.addFlashAttribute("mensagem", "As autorizações foram atualizadas!");
-			}
+	        }
+
 		}
 		return "redirect:/usuario/admin/all";
 

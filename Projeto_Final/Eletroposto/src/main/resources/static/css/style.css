@@ -180,6 +180,22 @@ cursor: pointer;
 .icondeletar:hover{
 transform: scale(1.5);
 }
+.papelcheckbox{
+	display:flex;
+	flex-direction:row;
+	padding:2rem;
+	justify-content: space-around;
+
+}
+.azul{
+	color: var(--cor-azul);
+}
+.rosa{
+	color:var(--cor-rosa);
+}
+.verde{
+	color:var(--cor-verde);
+}
 /*************  PRINCIPAL   *************/
 /*************    RODAPE    *************/
 .rodape{
@@ -342,12 +358,6 @@ transform: scale(1.5);
 .agendamentos td{
     border-bottom: .7rem solid var(--cor-bg);
     padding: 10px 20px;
-}
-.agendamentos a{
-    color: var(--cor-azul);
-}
-.agendamentos a:hover{
-color: var(--cor-fonte);
 }
 
 /***********      TABELA      ***********/

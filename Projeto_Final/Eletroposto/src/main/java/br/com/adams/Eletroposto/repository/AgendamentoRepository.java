@@ -25,6 +25,12 @@ public interface AgendamentoRepository extends JpaRepository<Agendamento, String
 
 	@Query(value = "SELECT * from Agendamento WHERE usuario_id IS NOT NULL AND data > :now", nativeQuery = true)
 	List<Agendamento> findAllAgendamentos(@Param("now")String now);
+	
+	@Query("select p from Agendamento p where p.usuario_id = :username")
+	List<Agendamento> findAgendamentoByUsuarioUSER(@Param("username") String username);
 
+	@Modifying
+	@Query(value = "UPDATE Agendamento p SET p.usuario_id = :username WHERE p.id = :id", nativeQuery = true)
+	void findAgendamentoAgendamento(@Param("username") String username, @Param("id") Long id);
 
 }

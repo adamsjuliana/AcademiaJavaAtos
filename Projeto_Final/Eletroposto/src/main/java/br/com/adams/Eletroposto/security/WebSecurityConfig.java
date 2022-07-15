@@ -15,22 +15,41 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.provisioning.InMemoryUserDetailsManager;
 
+import br.com.adams.Eletroposto.repository.UsuarioRepository;
+
 @Configuration
 @EnableWebSecurity
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
 	@Autowired
-	private DataSource dataSource;
-
+	private UsuarioRepository usuarioRepository;
+	
+	@Autowired 
+	private LoginSucesso loginSucesso;
+	
+	@Bean
+	public BCryptPasswordEncoder gerarCriptografia() {
+		BCryptPasswordEncoder criptografia = new BCryptPasswordEncoder();
+		return criptografia;
+	}
+	
+	@Override
+	public UserDetailsService userDetailsServiceBean() throws Exception {
+		UsuarioService detalheDoUsuario = new UsuarioService(usuarioRepository);
+		return detalheDoUsuario;
+	}
+	
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
 		http
 			.authorizeRequests()
-				.antMatchers("/", "/home", "/sobre", "/usuario/add").permitAll()
+				.antMatchers("/", "/home", "/sobre", "/usuario/add", "/usuario/admin/**", "/agendar*").permitAll()
 				.antMatchers("/css/**", "/images/**", "/js/**").permitAll()
 				.anyRequest().authenticated()
 				.and()
-			.formLogin()
+				.exceptionHandling().accessDeniedPage("/acesso-negado")
+				.and()
+			.formLogin().successHandler(loginSucesso)
 				.loginPage("/login")
 				.defaultSuccessUrl("/", true)
 				.permitAll()
@@ -41,18 +60,12 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
 	@Override
 	protected void configure(AuthenticationManagerBuilder auth) throws Exception {
-		BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
-
-		/*UserDetails user =
-				 User.builder()
-					.username("maria")
-					.password(encoder.encode("1"))
-					.roles("ADMIN")
-					.build();*/
-
-		auth.jdbcAuthentication()
-		.dataSource(dataSource)
-		.passwordEncoder(encoder);
-		/*.withUser(user);*/
+		// O objeto que vai obter os detalhes do usuário
+		UserDetailsService detalheDoUsuario = userDetailsServiceBean();
+		// Objeto para criptografia
+		BCryptPasswordEncoder criptografia = gerarCriptografia();
+		
+		auth.userDetailsService(detalheDoUsuario).passwordEncoder(criptografia);
 	}
+
 }

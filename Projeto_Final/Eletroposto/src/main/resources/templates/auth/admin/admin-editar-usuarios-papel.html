@@ -22,14 +22,15 @@
 				<li><a class="item" href="/sobre">Sobre</a></li>
 				<li><a class="item" href="/agendar">Agendar</a></li>
 				<li><a class="item" href="/meus">Meus Agendamentos</a></li>
-				<a class="item" href="/agendamentos">Agendamentos</a>
-				</li>
-				<!--<li><a class="item" href="#">Usuários</a></li>-->
+				<li><a class="item" href="/agendamentos">Agendamentos</a></li>
+				<li><a class="item" href="/usuario/admin/all">Usuários</a></li>
 			</ul>
 			<ul class="ul3">
 				<li><a class="btn" href="/usuario/add">Registrar</a></li>
-				<li><a class="btn lgn" href="/login">Logar</a></li>
-				<!--<li><a class="btn lgn" href="#">Deslogar</a></li>-->
+				<li sec:authorize="!isAuthenticated()"><a class="btn lgn"
+					href="/login">Logar</a></li>
+				<li sec:authorize="isAuthenticated()"><a class="btn lgn"
+					onclick="document.querySelector('#formLogout').submit()" href="#">Deslogar</a></li>
 			</ul>
 		</nav>
 	</header>
@@ -40,30 +41,44 @@
 				th:action="@{/usuario/admin/editPapel/{id} (id=${usuario.id})}"
 				th:object="${usuario}" method="post">
 				<label for="username">Username: </label><input class="campo"
-					id="username" type="text" th:field="*{username}" disabled /> <label>Autorizações:
-				</label>
+					id="username" type="text" th:field="*{username}" disabled/>
+
 				<div class="papelcheckbox">
-
-					<th:block th:each="pp : ${listaPapeis}">
-						<div th:if="${#lists.contains(usuario.papeis, pp)}">
-							<input type="checkbox" name="pps" th:value="${pp.id}" checked />
-							<label th:text="${pp.papel}"></label>
+					<div>
+						<label>Ativo:</label>
+						<div>
+							<input class="form-check-input" type="radio" value="true"
+								id="verdadeiro" th:field="*{ativo}"> <label
+								for="verdadeiro"><span class="verde"> Ativo</span></label>
 						</div>
-						<div th:unless="${#lists.contains(usuario.papeis, pp)}">
-							<input type="checkbox" name="pps" th:value="${pp.id}" /> <label
-								th:text="${pp.papel}"></label>
+						<div>
+							<input type="radio" value="false" id="falso" th:field="*{ativo}">
+							<label for="falso"><span class="rosa">Não ativo</span></label>
 						</div>
-					</th:block>
+					</div>
 
-				</div>
-				<div class="avisoregistrado" th:if="${mensagem}">
-					<span th:text="${mensagem}"></span>
-				</div>
+					<div>
+						<label>Autorizações: </label>
+						<th:block th:each="pp : ${listaPapeis}">
+							<div th:if="${#lists.contains(usuario.papeis, pp)}">
+								<input type="checkbox" name="pps" th:value="${pp.id}" checked />
+								<label th:text="${pp.papel}"></label>
+							</div>
+							<div th:unless="${#lists.contains(usuario.papeis, pp)}">
+								<input type="checkbox" name="pps" th:value="${pp.id}" /> <label
+									th:text="${pp.papel}"></label>
+							</div>
+						</th:block>
+					</div>
+					</div>
+					<div class="avisoregistrado" th:if="${mensagem}">
+						<span th:text="${mensagem}"></span>
+					</div>
 
-				<div class="InputBtns">
-					<input class="botao" type="submit" value="Entrar" /> <input
-						class="botao reset" type="reset" value="Limpar" />
-				</div>
+					<div class="InputBtns">
+						<input class="botao" type="submit" value="Entrar" /> <input
+							class="botao reset" type="reset" value="Limpar" />
+					</div>
 			</form>
 
 		</div>

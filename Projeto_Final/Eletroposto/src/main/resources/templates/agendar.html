@@ -1,77 +1,92 @@
 <!doctype html>
 <html lang="PT-BR" xmlns:th="http://www.thymeleaf.org">
 <head>
-	<meta charset="UTF-8"/>
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Agendar</title>
-	<!-- CSS -->
-    <link rel="stylesheet" th:href="@{/css/style.css}"/>
-    <!-- SCRIPTS -->
-    <script defer src="https://kit.fontawesome.com/0a84b03181.js"/></script>
-    <!-- ICONE -->
-	
-
+<meta charset="UTF-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Agendar</title>
+<!-- CSS -->
+<link rel="stylesheet" th:href="@{/css/style.css}" />
+<!-- SCRIPTS -->
+<script defer src="https://kit.fontawesome.com/0a84b03181.js" /></script>
+<!-- ICONE -->
 <body>
-<header class="cabecalho">
-<nav class="menu">
-    <ul class="ul1">
-        <li><a class="logo" href="#">ELETROPOSTO</a></li>
-        <li><a class="subt" href="#">Seu eletroposto</a></li>
-    </ul>
-    <ul class="ul2">
-        <li><a class="item" href="/">Página Inicial</a></li>
-        <li><a class="item" href="/sobre">Sobre</a></li>
-        <li><a class="item" href="#">Agendar</a></li>
-        <li><a class="item" href="/meus">Meus Agendamentos</a></li>
-        <a class="item" href="/agendamentos">Agendamentos</a></li>
-        <!--<li><a class="item" href="#">Usuários</a></li>-->
-    </ul>
-    <ul class="ul3">
-        <li><a class="btn" href="#">Registrar</a></li>
-        <li><a class="btn lgn" href="/login">Logar</a></li>
-        <!--<li><a class="btn lgn" href="#">Deslogar</a></li>-->
-    </ul>
-</nav>
-</header>
-<main class="principal">
-    <div class="container">
-        <h1>Agendar</h1>
-        <table class="agendamentos meusagendamentos">
-            <thead>
-                <tr>
-                    <th>Dia Hora</th>
-                    <th></th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr th:each="a : ${agendamento}">
-                    <td th:text="${a.data}">fgfdgfg</td>
-                    <td><a>Agendar</a></td>
-                </tr>
+	<header class="cabecalho">
+		<nav class="menu">
+			<ul class="ul1">
+				<li><a class="logo" href="#">ELETROPOSTO</a></li>
+				<li><a class="subt" href="#">Seu eletroposto</a></li>
+			</ul>
+			<ul class="ul2">
+				<li><a class="item" href="/">Página Inicial</a></li>
+				<li><a class="item" href="/sobre">Sobre</a></li>
+				<li><a class="item" href="/agendar">Agendar</a></li>
+				<li><a class="item" href="/meus">Meus Agendamentos</a></li>
+				<li><a class="item" href="/agendamentos">Agendamentos</a></li>
+				<li><a class="item" href="/usuario/admin/all">Usuários</a></li>
+			</ul>
+			<ul class="ul3">
+				<li><a class="btn" href="/usuario/add">Registrar</a></li>
+				<li sec:authorize="!isAuthenticated()"><a class="btn lgn"
+					href="/login">Logar</a></li>
+				<li sec:authorize="isAuthenticated()"><a class="btn lgn"
+					onclick="document.querySelector('#formLogout').submit()" href="#">Deslogar</a></li>
+			</ul>
+		</nav>
+	</header>
+	<main class="principal">
+		<div class="container">
+			<h1>Agendar</h1>
+			<table class="agendamentos meusagendamentos">
+				<thead>
+					<tr>
+						<th>Dia Hora</th>
+						<th></th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr th:if="${agendamento.empty}">
+						<td colspan="2">Sem horários disponíveis. Volte mais tarde!</td>
+					</tr>
+					<tr th:each="a : ${agendamento}">
+						<td th:text="${a.data}">fgfdgfg</td>
+						<td><a th:href="@{/agendamento/update/{id} (id=${a.id})}">Agendar</a></td>
+					</tr>
 
-            </tbody>
-        </table>
-    </div>
-</main>
-<footer class="rodape">
-    <div class="rodape-conteudo">
-    <div class="endereco">
-        <h2><i class="fa-solid fa-location-pin"></i> Av. Roraima. Camobi. Santa Maria, RS</h2>
-        <h3><i class="fa-solid fa-phone"></i> (55) 55 3555 555</h3>
-        </div>
-    <div class="links">
-        <h1>Nos encontre também: </h1>
-        <ul>
-        <li><a href="#"><img class="social-media" src="/images/instagram.png" alt="Instagram"></a></li>
-        <li><a href="#"><img class="social-media" src="/images/facebook.png" alt="Facebook"></a></li>
-        <li><a href="#"><img class="social-media" src="/images/linkedin.png" alt="Linkedin"></a></li>
-        <li><a href="#"><img class="social-media" src="/images/twitter.png" alt="Twitter"></a></li>
-        </ul>
-    </div>
-</div>
-    <h2 class="cred">© Juliana Pienis Adams | Academia Java - ATOS/UFN 2022 | Icones por <a href="https://www.iconfinder.com/">IconFinder</a>.</h2>
-</footer>
+				</tbody>
+			</table>
+		</div>
+	</main>
+	<footer class="rodape">
+		<div class="rodape-conteudo">
+			<div class="endereco">
+				<h2>
+					<i class="fa-solid fa-location-pin"></i> Av. Roraima. Camobi. Santa
+					Maria, RS
+				</h2>
+				<h3>
+					<i class="fa-solid fa-phone"></i> (55) 55 3555 555
+				</h3>
+			</div>
+			<div class="links">
+				<h1>Nos encontre também:</h1>
+				<ul>
+					<li><a href="#"><img class="social-media"
+							src="/images/instagram.png" alt="Instagram"></a></li>
+					<li><a href="#"><img class="social-media"
+							src="/images/facebook.png" alt="Facebook"></a></li>
+					<li><a href="#"><img class="social-media"
+							src="/images/linkedin.png" alt="Linkedin"></a></li>
+					<li><a href="#"><img class="social-media"
+							src="/images/twitter.png" alt="Twitter"></a></li>
+				</ul>
+			</div>
+		</div>
+		<h2 class="cred">
+			© Juliana Pienis Adams | Academia Java - ATOS/UFN 2022 | Icones por <a
+				href="https://www.iconfinder.com/">IconFinder</a>.
+		</h2>
+	</footer>
 
 
 
@@ -83,5 +98,6 @@
 
 
 </body>
-<script src="https://kit.fontawesome.com/0a84b03181.js" crossorigin="anonymous"></script>
+<script src="https://kit.fontawesome.com/0a84b03181.js"
+	crossorigin="anonymous"></script>
 </html>

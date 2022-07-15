@@ -23,14 +23,14 @@
         <li><a class="item" href="/">Página Inicial</a></li>
         <li><a class="item" href="/sobre">Sobre</a></li>
         <li><a class="item" href="/agendar">Agendar</a></li>
-        <li><a class="item" href="/meus">Meus Agendamentos</a></li>
+		<li><a class="item" href="/meus">Meus Agendamentos</a></li>
         <li><a class="item" href="/agendamentos">Agendamentos</a></li>
-        <li><a class="item" href="usuario/admin/all">Usuários</a></li>
+        <li><a class="item" href="/usuario/admin/all">Usuários</a></li>
     </ul>
     <ul class="ul3">
-        <li><a class="btn" href="#">Registrar</a></li>
-        <li><a class="btn lgn" href="/login">Logar</a></li>
-        <!--<li><a class="btn lgn" href="#">Deslogar</a></li>-->
+        <li><a class="btn" href="/usuario/add">Registrar</a></li>
+        <li sec:authorize="!isAuthenticated()"><a class="btn lgn" href="/login">Logar</a></li>
+        <li sec:authorize="isAuthenticated()"><a class="btn lgn" onclick="document.querySelector('#formLogout').submit()" href="#">Deslogar</a></li>
     </ul>
 </nav>
 </header>
@@ -46,21 +46,23 @@
                     <th>Nome</th>
                     <th>Email</th>
                     <th>Username</th>
-                    <th>Autorizações</th>
-                    <th>Autorizações</th>
-                    <th>Perfil</th>
-                    <th>Apagar</th>
+                    <th colspan="2">Autorizações</th>
+                    <th colspan="2"><span class="azul">Editar</span></th>
+                    <th><span class="rosa">Apagar</span></th>
                 </tr>
             </thead>
             <tbody>
             	<tr th:if="${usuarios.empty}">
-            	<td colspan="5">Sem Usuários Registrados</td>
+            	<td colspan="6">Sem Usuários Registrados</td>
             	</tr>
             	
                 <tr th:each="u : ${usuarios}">
                 	<td th:text="${u.nome}"></td>
                 	<td th:text="${u.email}"></td>
                 	<td th:text="${u.username}"></td>
+                <td th:text="${u.ativo} ? 'ATIVO' : 'NÃO ATIVO'"></td>
+                	
+                	
 				<td>
 					<th:block th:each="pp : ${u.papeis}">
 						<span th:text="${pp.papel}"></span><br/>
@@ -69,17 +71,16 @@
 
                 	<td>
                 	<a th:href="@{/usuario/admin/editPapel/{id} (id=${u.id})}">
-                	Editar</a>
+                	<span class="azul">Autorizações</span></a>
                 	</td>
                 	<td>
-                		<a th:href="@{/usuario/admin/edit/{id} (id=${u.id})}">
-                		Editar</a>
+                	<a th:href="@{/usuario/admin/edit/{id} (id=${u.id})}"><span class="azul">Perfil</span></a>
                 	</td>
                 	 <td>
                 		<a th:href="@{/usuario/admin/del/{id} (id=${u.id})}"
                 		th:data-confirm-delete="|Você gostaria de deletar ${u.nome}?|"
                 		onclick="if(!confirm(this.getAttribute('data-confirm-delete'))) return false">
-                		Apagar</a>
+                		<span class="rosa">Apagar</span></a>
                 	</td>
                 </tr>
 
