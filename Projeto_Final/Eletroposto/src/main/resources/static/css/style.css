@@ -1,0 +1,503 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+    list-style: none;
+    box-sizing: border-box;
+}
+:root{
+    --cor-bg: rgb(34, 34, 34);
+    --cor-borda: rgb(49, 49, 49);
+    --cor-bg-t: rgba(255,255,255,.05);
+    --cor-fonte: rgb(209, 209, 209);
+    --cor-cinza: rgb(196, 196, 196);
+    --cor-branco: #ffffff;
+    --cor-rosa: #ff0057;
+    --cor-preto-t: rgba(0, 0, 0, .4);
+    --cor-laranja: #e64a19;
+    --cor-amarelo: #e6e319;
+    --cor-azul: #00bcd4;
+    --cor-verde: #89ff00;
+    --cor-roxo: #5d02ff;
+    --cor-botao: #5d02ff;
+}
+body{
+    background: var(--cor-bg);
+    font-family: 'poppins', sans-serif;
+}
+/*************  CABECALHO   *************/
+.rodape .fa-solid{
+    color:var(--cor-laranja);
+}
+.cabecalho{
+    margin: 0 auto;
+}
+.menu{
+    padding: 10px 35px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+.menu ul{
+    margin-top: .5rem;
+    list-style: none;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+.menu .ul1{
+    display: flex;
+    flex-direction: column;
+    line-height: .5rem;
+}
+.menu .subt{
+    font-size: 15px;
+    color: var(--cor-amarelo);
+}
+.menu .ul1 a{
+    cursor: default;
+}
+
+.menu .ul3{
+    gap: 1rem;
+}
+.menu a{
+    text-decoration: none;
+    color: var(--cor-fonte);
+}
+.menu .logo{
+    font-size: 25px;
+    font-weight: 600;
+}
+.menu .btn{
+    border-radius: 30em;
+    padding: 8px 20px;
+    border: 1px solid var(--cor-rosa);
+}
+.menu .btn:hover{
+    background: var(--cor-rosa);
+    color: var(--cor-branco);
+}
+.menu .lgn{
+    background: var(--cor-rosa);
+    color: var(--cor-branco);
+}
+.menu .lgn:hover{
+    color: var(--cor-fonte);
+}
+.ul2{
+    list-style:none;
+    float:left;
+    text-align: center;
+}
+.ul2 li{
+    position:relative;
+    float:left;
+    }
+.ul2 li a{
+    text-decoration:none; 
+    padding:5px 10px; 
+    display:block;
+}
+.ul2 li a:hover{
+color:#fff;
+
+}
+.ul2 li  ul{
+    position:absolute;
+    top:25px;
+    left:0;
+    display:none;
+}
+.ul2 li:hover ul, .ul2 li.over ul{display:block;}
+.ul2 li ul li{
+    display:block;
+    width:150px;
+    border-bottom: 1px solid var(--cor-cinza);
+}
+
+/*************  CABECALHO   *************/
+/*************  PRINCIPAL   *************/
+.principal{
+    padding: 2rem 10rem;
+    min-height: calc(100vh - 280px);
+    display: flex;
+    gap: 4rem;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly; 
+}
+.container{
+    color: var(--cor-fonte);
+}
+.container h1{
+    color: var(--cor-amarelo);
+}
+.figura{
+    min-width: 350px;
+}
+.con-fig{
+    max-width: 100%;
+}
+.principal .tapresentacao{
+   color: var(--cor-fonte);
+   max-width: 400px;
+}
+.tapresentacao h1{
+    font-size: 20px;
+    color: var(--cor-amarelo);
+    padding: 2rem 0;
+}
+.tapresentacao p{
+    text-indent: 2.5rem;
+    text-align: justify;
+}
+.tapresentacao h2{
+    text-align: right;
+    font-weight: 200;
+    padding: 2rem 0;
+}
+.tapresentacao .btn{
+    border-radius: 30em;
+    padding: 8px 20px;
+    border: 1px solid var(--cor-botao);
+    color: var(--cor-cinza);
+}
+.tapresentacao .btn:hover{
+    background: var(--cor-botao);
+    color: var(--cor-fonte);
+}
+.fa-trash-can{
+    color: var(--cor-rosa);
+}
+.icondeletar{
+color: var(--cor-rosa);
+cursor: pointer;
+}
+.icondeletar:hover{
+transform: scale(1.5);
+}
+/*************  PRINCIPAL   *************/
+/*************    RODAPE    *************/
+.rodape{
+    color: var(--cor-fonte);
+    text-align: center;
+}
+.rodape-conteudo{
+    display: flex;
+    flex-direction: row;
+    align-items: flex-end;
+    justify-content: space-around;
+}
+.rodape h1{
+    margin-bottom: 3px;
+    font-size: 15px;
+    font-weight: 300;
+}
+.links, .endereco{
+    margin: .5rem 0;
+}
+.endereco h2{
+    font-size: 15px;
+    font-weight: 300;
+}
+.cred{
+    margin-top: 1rem;
+    font-size: 12px;
+    font-weight: 300;
+}
+.cred a{
+    font-style: italic;
+    font-weight: 400;
+}
+.endereco h3{
+    font-size: 15px;
+    font-weight: 600;
+}
+.rodape ul{
+    display: inline-flex;
+    gap: 2rem;
+}
+.rodape a{
+    color: var(--cor-fonte);
+}
+.social-media{
+    width: 35px;
+}
+/*************    RODAPE    *************/
+/***********    FORMULARIO    ***********/
+/*** LOGIN ****/
+.formulario{
+    width: 500px;
+}
+.form{
+    margin: 1rem;
+    display: flex;
+    flex-direction: column;
+}
+.formulario label{
+    text-align: left;
+}
+.form .campo{
+    height: 2.5rem;
+    max-width: 100%;
+    background: var(--cor-bg-t);
+    border: none;
+    border-radius: 12px;
+    color: var(--cor-fonte);
+    padding: 0 1rem;
+    letter-spacing: 1px;
+    font-size: 15px;
+}
+.aviso{
+    padding: 5px;
+    margin: 0 auto;
+    border-radius: 50em;
+    font-weight: 400;
+    width: 100%;
+    text-align: right;
+    color: var(--cor-rosa);
+    font-size: 10px;
+}
+.avisoregistrado{
+    padding: 5px;
+    margin: 0 auto;
+    border-radius: 50em;
+    font-weight: 600;
+    width: 100%;
+    text-align: center;
+    color: var(--cor-rosa);
+    font-size: 12px;
+}
+.form .InputBtns{
+    margin-top: 1.4rem;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: left;
+    gap: 1rem;
+}
+.form .botao{
+    border-radius: 30em;
+    padding: 8px 20px;
+    font-size: 18px;
+    border: 1px solid var(--cor-botao);
+    background: var(--cor-botao);
+    color: var(--cor-cinza);
+    cursor: pointer;
+}
+.form .reset{
+    background: transparent;
+}
+.form .reset:hover{
+    color: var(--cor-branco);
+    background: var(--cor-botao);
+}
+.form .botao:hover{
+    color: var(--cor-branco);
+}
+.form .campo:focus{
+    background: var(--cor-preto-t);
+    outline: none;
+}
+/*** REGISTRO ****/
+.form .invi{
+    display: none;
+}
+.invi{
+    display: none;
+}
+.form .cid-est{
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+}
+.form .ce{
+    display: flex;
+    flex-direction: column;
+}
+.form .InputCidade{
+    width: 100%;
+}
+/***********    FORMULARIO    ***********/
+/***********      TABELA      ***********/
+
+
+.agendamentos{
+    border-collapse: collapse;
+    text-align: center;
+    width: 500px;
+}
+.agendamentos thead{
+    text-transform: uppercase;
+}
+.agendamentos tbody {
+    background-color: var(--cor-preto-t);
+}
+.agendamentos th,
+.agendamentos td{
+    border-bottom: .7rem solid var(--cor-bg);
+    padding: 10px 50px;
+}
+.agendamentos a{
+    padding: .3rem 2rem;
+    border: 1px solid var(--cor-rosa);
+    border-radius: 50em;
+    color: var(--cor-fonte);
+}
+.agendamentos a:hover{
+background: var(--cor-rosa);
+}
+
+/***********      TABELA      ***********/
+/***********  MSG ERRO INPUT  ***********/
+.obrigatorio{
+    color: var(--cor-rosa);
+}
+.input-container{
+    display: flex;
+    flex-direction: column;
+}
+.input-container--invalido {
+    margin-bottom: 0.5rem;
+}
+.input-container--invalido .input {
+    border: 1px solid var(--cor-aviso);
+    border-radius: 7px;
+}
+.input-container--invalido .input-label {
+    color: var(--cor-aviso);
+}
+.input-mensagem-erro {
+    display: none;
+}
+.input-container--invalido .input-mensagem-erro {
+    color: var(--cor-aviso);
+    display: block;
+    margin-top: 0.5rem;
+    padding-left: 0.5rem;
+}
+/***********  MSG ERRO INPUT  ***********/
+
+
+
+
+
+
+
+
+
+
+
+
+@media screen and (max-width: 550px){
+/*************  CABECALHO   *************/
+.menu{
+    flex-direction: column;
+    gap: 2px;
+    text-align: center;
+}
+.menu .ul2{
+    flex-direction: column;
+    gap: .5rem;
+    margin-bottom: 3rem;
+}
+.menu .ul3{
+    margin-top: 1rem;
+}
+.ul2 li  ul{
+    font-size: 12px;
+    display:block;
+}
+.ul2 li:hover ul, .ul2 li.over ul{display:block;}
+.ul2 li ul li{
+    border-bottom: none;
+}
+
+/*************  CABECALHO   *************/
+/*************  PRINCIPAL   *************/
+.principal{
+    padding: 2rem 0;
+    flex-direction: column-reverse;
+    gap: 2rem;
+    height: auto;
+    margin-top: 0;
+    min-height: calc(100vh - 500px);
+}
+.figura{
+    padding: 0 2rem;
+}
+.tapresentacao{
+    padding: 0 2rem;
+    text-align: center;
+}
+.tapresentacao .btn{
+    padding: 8px 60px;
+}
+.tapresentacao h1{
+    text-align: left;
+    font-size:  20px;
+    padding: 0 2rem 1rem 0;
+}
+.tapresentacao h2{
+    font-size: 1.3rem;
+    padding: 1rem 0 1rem 0;
+}
+.agendamentos{
+    width: 200px;
+}
+.agendamentos a{
+    padding: .2rem .5rem;
+}
+/*************  PRINCIPAL   *************/
+/*************    RODAPE    *************/
+.endereco{
+    margin-top: 1rem;
+}
+.links h1{
+    margin-bottom: .5rem;
+}
+.rodape {
+    border-top: 2px solid var(--cor-borda);
+}
+.rodape-conteudo{
+    flex-direction: column;
+    align-items: center;
+}
+.cred{
+    padding: 0 3rem;
+}
+/*************    RODAPE    *************/
+/***********    FORMULARIO    ***********/
+.formulario{
+    width: 300px;
+}
+.form .campo{
+    height: 2rem;
+}
+.form .InputBtns{
+    margin-top: 10px;
+    justify-content: center;
+}
+.form .cid-est{
+    flex-direction: column;
+    gap: 0;
+}
+/***********    FORMULARIO    ***********/
+/***********      TABELA      ***********/
+.container2 h1{
+    font-size: 22px;
+}
+.agendamentos{
+    font-size: 12px;
+    margin: 0 auto;
+}
+/***********      TABELA      ***********/
+
+
+
+
+}

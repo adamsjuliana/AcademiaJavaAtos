@@ -26,11 +26,10 @@ xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
 <li sec:authorize="isAuthenticated()"><a onclick="document.querySelector('#formLogout').submit()" href="#">Deslogar</a></li>
 </ul>
 </nav>
-<form id="formLogout" th:action="@{/logout}" method="post"></form>
 </header>
 
 <div sec:authorize="isAuthenticated()"> Logged user: <span sec:authentication="name"></span>
-<div sec:authorize="hasRole('ROLE_ADMIN')">Role: Admin</div>
+<div sec:authorize="hasRole('ROLE_ADMIN')">Usuário Logado: <span sec:authentication="name"></span> | Modo: Administrador</div>
 <div sec:authorize="hasRole('ROLE_USER')">Role: User</div>		
 	
 <div class="credit">Juliana Pienis Adams © 2022</div>    
@@ -58,5 +57,9 @@ const ano = data.getFullYear()
 </script>  
 
 </div>
+
+
+
+<form id="formLogout" th:action="@{/logout}" method="post"></form>
 </body>
 </html>
