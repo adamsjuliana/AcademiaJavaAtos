@@ -11,29 +11,27 @@
 <script defer src="https://kit.fontawesome.com/0a84b03181.js" /></script>
 <!-- ICONE -->
 <body>
-	<header class="cabecalho">
-		<nav class="menu">
-			<ul class="ul1">
-				<li><a class="logo" href="#">ELETROPOSTO</a></li>
-				<li><a class="subt" href="#">Seu eletroposto</a></li>
-			</ul>
-			<ul class="ul2">
-				<li><a class="item" href="/">Página Inicial</a></li>
-				<li><a class="item" href="/sobre">Sobre</a></li>
-				<li><a class="item" href="/agendar">Agendar</a></li>
-				<li><a class="item" href="/meus">Meus Agendamentos</a></li>
-				<li><a class="item" href="/agendamentos">Agendamentos</a></li>
-				<li><a class="item" href="/usuario/admin/all">Usuários</a></li>
-			</ul>
-			<ul class="ul3">
-				<li><a class="btn" href="/usuario/add">Registrar</a></li>
-				<li sec:authorize="!isAuthenticated()"><a class="btn lgn"
-					href="/login">Logar</a></li>
-				<li sec:authorize="isAuthenticated()"><a class="btn lgn"
-					onclick="document.querySelector('#formLogout').submit()" href="#">Deslogar</a></li>
-			</ul>
-		</nav>
-	</header>
+<header class="cabecalho">
+<nav class="menu">
+    <ul class="ul1">
+        <li><a class="logo" href="#">ELETROPOSTO</a></li>
+        <li><a class="subt" href="#">Seu eletroposto</a></li>
+    </ul>
+    <ul class="ul2">
+        <li><a class="item" href="/">Página Inicial</a></li>
+        <li><a class="item" href="/sobre">Sobre</a></li>
+        <li><a class="item" href="/agendar">Agendar</a></li>
+		<li><a class="item" href="/agendamento/meus">Meus Agendamentos</a></li>
+        <li><a class="item" href="/agendamentos">Agendamentos</a></li>
+        <li><a class="item" href="/usuario/admin/all">Usuários</a></li>
+    </ul>
+    <ul class="ul3">
+        <li sec:authorize="!isAuthenticated()"><a class="btn" href="/usuario/add">Registrar</a></li>
+        <li sec:authorize="!isAuthenticated()"><a class="btn lgn" href="/login">Logar</a></li>
+        <li sec:authorize="isAuthenticated()"><a class="btn lgn" onclick="document.querySelector('#formLogout').submit()" href="#">Deslogar</a></li>
+    </ul>
+</nav>
+</header>
 	<main class="principal">
 		<div class="container formulario">
 			<h1>Autorizações</h1>
@@ -60,11 +58,11 @@
 					<div>
 						<label>Autorizações: </label>
 						<th:block th:each="pp : ${listaPapeis}">
-							<div th:if="${#lists.contains(usuario.papeis, pp)}">
+							<div class="azul" th:if="${#lists.contains(usuario.papeis, pp)}">
 								<input type="checkbox" name="pps" th:value="${pp.id}" checked />
 								<label th:text="${pp.papel}"></label>
 							</div>
-							<div th:unless="${#lists.contains(usuario.papeis, pp)}">
+							<div class="azul" th:unless="${#lists.contains(usuario.papeis, pp)}">
 								<input type="checkbox" name="pps" th:value="${pp.id}" /> <label
 									th:text="${pp.papel}"></label>
 							</div>
@@ -126,4 +124,5 @@
 </body>
 <script src="https://kit.fontawesome.com/0a84b03181.js"
 	crossorigin="anonymous"></script>
+	<form class="invi" id="formLogout" th:action="@{/logout}" method="post"></form>
 </html>

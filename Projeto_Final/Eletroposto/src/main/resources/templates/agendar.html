@@ -11,29 +11,27 @@
 <script defer src="https://kit.fontawesome.com/0a84b03181.js" /></script>
 <!-- ICONE -->
 <body>
-	<header class="cabecalho">
-		<nav class="menu">
-			<ul class="ul1">
-				<li><a class="logo" href="#">ELETROPOSTO</a></li>
-				<li><a class="subt" href="#">Seu eletroposto</a></li>
-			</ul>
-			<ul class="ul2">
-				<li><a class="item" href="/">Página Inicial</a></li>
-				<li><a class="item" href="/sobre">Sobre</a></li>
-				<li><a class="item" href="/agendar">Agendar</a></li>
-				<li><a class="item" href="/meus">Meus Agendamentos</a></li>
-				<li><a class="item" href="/agendamentos">Agendamentos</a></li>
-				<li><a class="item" href="/usuario/admin/all">Usuários</a></li>
-			</ul>
-			<ul class="ul3">
-				<li><a class="btn" href="/usuario/add">Registrar</a></li>
-				<li sec:authorize="!isAuthenticated()"><a class="btn lgn"
-					href="/login">Logar</a></li>
-				<li sec:authorize="isAuthenticated()"><a class="btn lgn"
-					onclick="document.querySelector('#formLogout').submit()" href="#">Deslogar</a></li>
-			</ul>
-		</nav>
-	</header>
+<header class="cabecalho">
+<nav class="menu">
+    <ul class="ul1">
+        <li><a class="logo" href="#">ELETROPOSTO</a></li>
+        <li><a class="subt" href="#">Seu eletroposto</a></li>
+    </ul>
+    <ul class="ul2">
+        <li><a class="item" href="/">Página Inicial</a></li>
+        <li><a class="item" href="/sobre">Sobre</a></li>
+        <li><a class="item" href="/agendar">Agendar</a></li>
+		<li><a class="item" href="/agendamento/meus">Meus Agendamentos</a></li>
+        <li><a class="item" href="/agendamentos">Agendamentos</a></li>
+        <li><a class="item" href="/usuario/admin/all">Usuários</a></li>
+    </ul>
+    <ul class="ul3">
+        <li sec:authorize="!isAuthenticated()"><a class="btn" href="/usuario/add">Registrar</a></li>
+        <li sec:authorize="!isAuthenticated()"><a class="btn lgn" href="/login">Logar</a></li>
+        <li sec:authorize="isAuthenticated()"><a class="btn lgn" onclick="document.querySelector('#formLogout').submit()" href="#">Deslogar</a></li>
+    </ul>
+</nav>
+</header>
 	<main class="principal">
 		<div class="container">
 			<h1>Agendar</h1>
@@ -49,8 +47,13 @@
 						<td colspan="2">Sem horários disponíveis. Volte mais tarde!</td>
 					</tr>
 					<tr th:each="a : ${agendamento}">
-						<td th:text="${a.data}">fgfdgfg</td>
-						<td><a th:href="@{/agendamento/update/{id} (id=${a.id})}">Agendar</a></td>
+						<td th:text="${a.data}"></td>
+						<td>
+										
+						
+						
+						<a th:href="@{/agendamento/update/{id} (id=${a.id})}" th:data-confirm-agendamento="|Você gostaria de agendar para o dia ${a.data} horas? Esta ação não pode ser desfeita. |"
+                		onclick="if(!confirm(this.getAttribute('data-confirm-agendamento'))) return false"><span class="verde">Agendar</a></span></td>
 					</tr>
 
 				</tbody>
@@ -61,8 +64,7 @@
 		<div class="rodape-conteudo">
 			<div class="endereco">
 				<h2>
-					<i class="fa-solid fa-location-pin"></i> Av. Roraima. Camobi. Santa
-					Maria, RS
+					<i class="fa-solid fa-location-pin"></i> Av. Roraima. Camobi. Santa	Maria, RS
 				</h2>
 				<h3>
 					<i class="fa-solid fa-phone"></i> (55) 55 3555 555
@@ -100,4 +102,5 @@
 </body>
 <script src="https://kit.fontawesome.com/0a84b03181.js"
 	crossorigin="anonymous"></script>
+	<form class="invi" id="formLogout" th:action="@{/logout}" method="post"></form>
 </html>

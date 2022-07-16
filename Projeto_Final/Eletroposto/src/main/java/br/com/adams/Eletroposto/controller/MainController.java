@@ -40,7 +40,7 @@ public class MainController {
 		   }
 	@GetMapping("/agendar")
 	public String agendar (@ModelAttribute Agendamento agendamento, Model model) {
-		   DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm:ss");
+		   DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm");
 		   LocalDateTime now = LocalDateTime.now(ZoneId.of("America/Sao_Paulo"));
 		   now = now.truncatedTo(ChronoUnit.HOURS);
 		   String nowstr = now.format(dateTimeFormatter);
@@ -60,7 +60,7 @@ public class MainController {
 	}
 	@GetMapping("/agendamentos")
 	public String agendamentos (@ModelAttribute Agendamento agendamento, Model model) {
-		   DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm:ss");
+		   DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm");
 		   LocalDateTime now = LocalDateTime.now(ZoneId.of("America/Sao_Paulo"));
 		   now = now.truncatedTo(ChronoUnit.HOURS);
 		   String nowstr = now.format(dateTimeFormatter);

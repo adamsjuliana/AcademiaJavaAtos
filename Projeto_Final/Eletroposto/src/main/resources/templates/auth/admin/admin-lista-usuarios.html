@@ -23,12 +23,12 @@
         <li><a class="item" href="/">Página Inicial</a></li>
         <li><a class="item" href="/sobre">Sobre</a></li>
         <li><a class="item" href="/agendar">Agendar</a></li>
-		<li><a class="item" href="/meus">Meus Agendamentos</a></li>
+		<li><a class="item" href="/agendamento/meus">Meus Agendamentos</a></li>
         <li><a class="item" href="/agendamentos">Agendamentos</a></li>
         <li><a class="item" href="/usuario/admin/all">Usuários</a></li>
     </ul>
     <ul class="ul3">
-        <li><a class="btn" href="/usuario/add">Registrar</a></li>
+        <li sec:authorize="!isAuthenticated()"><a class="btn" href="/usuario/add">Registrar</a></li>
         <li sec:authorize="!isAuthenticated()"><a class="btn lgn" href="/login">Logar</a></li>
         <li sec:authorize="isAuthenticated()"><a class="btn lgn" onclick="document.querySelector('#formLogout').submit()" href="#">Deslogar</a></li>
     </ul>
@@ -40,14 +40,14 @@
                      <div class="avisoregistrado" th:if="${mensagem}">
                <span th:text="${mensagem}"></span>
             </div>
-        <table class="agendamentos meusagendamentos">
+        <table class="agendamentos listausuarios">
             <thead>
                 <tr>
                     <th>Nome</th>
                     <th>Email</th>
                     <th>Username</th>
                     <th colspan="2">Autorizações</th>
-                    <th colspan="2"><span class="azul">Editar</span></th>
+                    <th><span class="azul">Editar</span></th>
                     <th><span class="rosa">Apagar</span></th>
                 </tr>
             </thead>
@@ -65,7 +65,7 @@
                 	
 				<td>
 					<th:block th:each="pp : ${u.papeis}">
-						<span th:text="${pp.papel}"></span><br/>
+						<span class="verde" th:text="${pp.papel}"></span><br/>
 					</th:block>							
 				</td>
 
@@ -73,9 +73,7 @@
                 	<a th:href="@{/usuario/admin/editPapel/{id} (id=${u.id})}">
                 	<span class="azul">Autorizações</span></a>
                 	</td>
-                	<td>
-                	<a th:href="@{/usuario/admin/edit/{id} (id=${u.id})}"><span class="azul">Perfil</span></a>
-                	</td>
+
                 	 <td>
                 		<a th:href="@{/usuario/admin/del/{id} (id=${u.id})}"
                 		th:data-confirm-delete="|Você gostaria de deletar ${u.nome}?|"
@@ -118,4 +116,5 @@
 
 </body>
 <script src="https://kit.fontawesome.com/0a84b03181.js" crossorigin="anonymous"></script>
+<form class="invi" id="formLogout" th:action="@{/logout}" method="post"></form>
 </html>

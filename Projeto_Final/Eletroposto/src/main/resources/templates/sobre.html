@@ -22,12 +22,12 @@
         <li><a class="item" href="/">Página Inicial</a></li>
         <li><a class="item" href="/sobre">Sobre</a></li>
         <li><a class="item" href="/agendar">Agendar</a></li>
-		<li><a class="item" href="/meus">Meus Agendamentos</a></li>
+		<li><a class="item" href="/agendamento/meus">Meus Agendamentos</a></li>
         <li><a class="item" href="/agendamentos">Agendamentos</a></li>
         <li><a class="item" href="/usuario/admin/all">Usuários</a></li>
     </ul>
     <ul class="ul3">
-        <li><a class="btn" href="/usuario/add">Registrar</a></li>
+        <li sec:authorize="!isAuthenticated()"><a class="btn" href="/usuario/add">Registrar</a></li>
         <li sec:authorize="!isAuthenticated()"><a class="btn lgn" href="/login">Logar</a></li>
         <li sec:authorize="isAuthenticated()"><a class="btn lgn" onclick="document.querySelector('#formLogout').submit()" href="#">Deslogar</a></li>
     </ul>
@@ -59,13 +59,7 @@ Sobre o projeto aqui
 
 
 
-
-
-
-
-
-
-
 </body>
 <script src="https://kit.fontawesome.com/0a84b03181.js" crossorigin="anonymous"></script>
+<form class="invi" id="formLogout" th:action="@{/logout}" method="post"></form>
 </html>

@@ -185,7 +185,6 @@ transform: scale(1.5);
 	flex-direction:row;
 	padding:2rem;
 	justify-content: space-around;
-
 }
 .azul{
 	color: var(--cor-azul);
@@ -195,6 +194,9 @@ transform: scale(1.5);
 }
 .verde{
 	color:var(--cor-verde);
+}
+.laranja{
+	color:var(--cor-laranja);
 }
 /*************  PRINCIPAL   *************/
 /*************    RODAPE    *************/
@@ -460,6 +462,9 @@ transform: scale(1.5);
 .agendamentos a{
     padding: .2rem .5rem;
 }
+.papelcheckbox{
+	padding:2rem 0;
+}
 /*************  PRINCIPAL   *************/
 /*************    RODAPE    *************/
 .endereco{
@@ -503,6 +508,36 @@ transform: scale(1.5);
     font-size: 12px;
     margin: 0 auto;
 }
+.listausuarios table{
+    width:100%;
+}
+.listausuarios th{
+    display:block;
+    width:100%;
+}
+.listausuarios td{
+   display:block;
+   width:100%;
+}
+
+.listausuarios tr{
+    display:block;
+}
+.agendamentos th{
+	padding: 0;
+}
+.agendamentos td{
+    border-bottom: none;
+    padding: 10px 0;
+}
+.agendamentos td:nth-child(7){
+    border-bottom: 1rem solid var(--cor-bg);
+}
+.agendamentos{
+    width: 300px;
+    font-size: 13px;
+}
+
 /***********      TABELA      ***********/
 
 

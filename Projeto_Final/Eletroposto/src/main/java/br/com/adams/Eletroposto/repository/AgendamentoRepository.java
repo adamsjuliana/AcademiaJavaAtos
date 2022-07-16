@@ -16,7 +16,7 @@ import br.com.adams.Eletroposto.model.Agendamento;
 @Transactional
 public interface AgendamentoRepository extends JpaRepository<Agendamento, String>  {
 
-	@Query(value = "SELECT * from Agendamento WHERE usuario_id IS NULL AND data > :now", nativeQuery = true)
+	@Query(value = "SELECT * from Agendamento a WHERE a.usuario_id IS NULL AND a.data > :now", nativeQuery = true)
 	List<Agendamento> findByIdData(@Param("now") String now);
 	
 	@Modifying
@@ -32,5 +32,9 @@ public interface AgendamentoRepository extends JpaRepository<Agendamento, String
 	@Modifying
 	@Query(value = "UPDATE Agendamento p SET p.usuario_id = :username WHERE p.id = :id", nativeQuery = true)
 	void findAgendamentoAgendamento(@Param("username") String username, @Param("id") Long id);
+
+	@Modifying
+	@Query(value = "UPDATE Agendamento p SET p.usuario_id = :username WHERE p.id = :id", nativeQuery = true)
+	void delAgendamento(@Param("username") String username, @Param("id") Long id);
 
 }

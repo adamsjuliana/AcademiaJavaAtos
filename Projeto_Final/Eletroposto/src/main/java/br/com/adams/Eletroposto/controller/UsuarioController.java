@@ -101,6 +101,7 @@ public class UsuarioController {
 			model.addAttribute("usernameExiste", "Username já existente.");
 			return "/auth/admin/admin-editar-usuarios";
 		}
+		
 		usuarioRepository.save(usuario);
 		attributes.addFlashAttribute("mensagem", "Usuário alterado com sucesso!!");
 		return "redirect:/usuario/admin/all";
